@@ -1,0 +1,17 @@
+{
+    "reports": {
+        "route-report": {
+            "table": {
+                "columnHeaders": {
+                    "SerialNo": "Numéro de série",
+                    "VehicleName": "Nom du véhicule",
+                    "From": "De",
+                    "To": "À"
+                },
+                "buttons": {
+                    "Excel": " Exceller"
+                }
+            }
+        }
+    }
+}

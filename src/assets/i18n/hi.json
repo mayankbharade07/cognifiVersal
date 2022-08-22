@@ -1,0 +1,17 @@
+{
+    "reports": {
+        "route-report": {
+            "table": {
+                "columnHeaders": {
+                    "SerialNo": "क्रमांक",
+                    "VehicleName": "वाहन का नाम",
+                    "From": "से",
+                    "To": "प्रति"
+                },
+                "buttons": {
+                    "Excel": "एक्सेल"
+                }
+            }
+        }
+    }
+}

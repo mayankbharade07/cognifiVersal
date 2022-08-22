@@ -1,0 +1,69 @@
+<div mat-dialog-title class="dialog-title">
+    <h2>Edit Vehicle</h2>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="vehicleForm" class="form-container">
+        <mat-tab-group>
+            <mat-tab label="Main">
+                <mat-card>
+                    <div class="image-upload">
+                        <mat-icon class="customIconSize">add_a_photo</mat-icon>
+                    </div>
+                    <mat-card-header>                       
+                        <mat-card-title>Vehicle Information</mat-card-title>                       
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div>
+                            <mat-form-field>
+                                <input formcontrolname="vehicleName" matInput="" placeholder="Vehicle Name" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input formcontrolname="licensePlate" matInput="" placeholder="License Plate" required>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input formcontrolname="vin" matInput="" placeholder="VIN">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input formcontrolname="vehicleTypeName" matInput="" placeholder="Select Type" required>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <input formcontrolname="vehicleSubtypeName" matInput="" placeholder="Select Subtype">
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <input formcontrolname="color" matInput="" placeholder="Color">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input formcontrolname="model" matInput="" placeholder="Model" required>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <input formcontrolname="depotName" matInput="" placeholder="Select Depot">
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <input formcontrolname="tag" matInput="" placeholder="Select Tag">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <input formcontrolname="device" matInput="" placeholder="Select Device">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button (click)="onSubmit()" mat-raised-button color="primary">Save</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-tab>
+            <mat-tab label="Specification">Specification</mat-tab>
+            <mat-tab label="Fuel">Fuel</mat-tab>
+            <mat-tab label="Insurance">Insurance</mat-tab>
+        </mat-tab-group>
+
+    </form>
+</mat-dialog-content>

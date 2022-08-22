@@ -1,0 +1,27 @@
+table {
+    width:100%;
+    table-layout:fixed;
+}
+
+.mat-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+ }
+
+.mat-row .mat-cell {
+    cursor: pointer;
+  }
+
+.mat-row:hover .mat-cell {
+    background-color:lightgrey;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.button-gap{
+    margin:1px;
+}

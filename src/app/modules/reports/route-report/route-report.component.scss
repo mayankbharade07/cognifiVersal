@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 1000px;
+    min-height: 100px;
+}
+
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+.btn-flex-end {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}

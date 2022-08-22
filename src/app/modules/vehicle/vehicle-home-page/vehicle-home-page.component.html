@@ -1,0 +1,88 @@
+<div class="container">
+    <div>
+        <mat-form-field>
+            <input matInput #filter (keyup)="applyFilter(filter.value)" placeholder="Search...">
+        </mat-form-field>
+    </div>
+    <div>
+        <button color="primary" class="button-gap" mat-mini-fab [matMenuTriggerFor]="settings_menu">
+            <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #settings_menu="matMenu">
+            <mat-selection-list #item>
+                <mat-list-option *ngFor="let column of displayedColumns">
+                    {{column}}
+                </mat-list-option>
+              </mat-selection-list>
+        </mat-menu>
+        <button color="primary" class="button-gap" mat-mini-fab
+            (click)="exporter.exportTable('xlsx', {fileName:'Vehicle'})">
+            <mat-icon>cloud_download</mat-icon>
+        </button>
+        <button color="primary" class="button-gap" mat-mini-fab>
+            <mat-icon>print</mat-icon>
+        </button>
+
+        <button color="primary" class="button-gap" mat-mini-fab>
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
+
+
+<div class="mat-elevation-z8">
+    <table mat-table matTableExporter [dataSource]="dataSource" #exporter="matTableExporter" matSort>
+        <ng-container matColumnDef="vehicleName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'vehicle.table.columnHeaders.VehicleName' |
+                translate}}</th>
+            <td mat-cell *matCellDef="let element">
+                <span>{{element.vehicleName}}</span>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="licensePlate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'vehicle.table.columnHeaders.LicensePlate' |
+                translate}}</th>
+            <td mat-cell *matCellDef="let element">
+                <span>{{element.licensePlate}}</span>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="vehicleTypeName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'vehicle.table.columnHeaders.Type' | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <span>{{element.vehicleTypeName}}</span>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="depotName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'vehicle.table.columnHeaders.Depot' | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <span>{{element.depotName}}</span>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="vehicleSubtypeName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'vehicle.table.columnHeaders.Subtype' | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <span>{{element.vehicleSubtypeName}}</span>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="model">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'vehicle.table.columnHeaders.Model' | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <span>{{element.model}}</span>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="device">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'vehicle.table.columnHeaders.Device' | translate}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <span>{{element.device}}</span>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getVehicleByRow(row)"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+</div>

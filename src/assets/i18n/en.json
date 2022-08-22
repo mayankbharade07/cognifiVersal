@@ -1,0 +1,33 @@
+{
+    "reports": {
+        "route-report": {
+            "table": {
+                "columnHeaders": {
+                    "SerialNo": "Sl No",
+                    "VehicleName": "Vehicle Name",
+                    "From": "From",
+                    "To": "To"
+                },
+                "buttons": {
+                    "Excel": " Excel"
+                }
+            }
+        }
+    },
+    "vehicle": {
+        "table": {
+            "columnHeaders": {
+                "VehicleName": "Vehicle Name",
+                "LicensePlate": "License Plate",
+                "Type": "Type",
+                "Depot": "Depot",
+                "Subtype": "Subtype",
+                "Model": "Model",
+                "Device": "Device"
+            },
+            "buttons": {
+                "Excel": " Excel"
+            }
+        }
+    }
+}

@@ -1,0 +1,173 @@
+<div [class.mat-elevation-z2]="false" [class.mat-elevation-z8]="true">
+  <mat-toolbar class="mat-elevation-z8 top-toolbar" color="primary">
+    <header>
+      <h1>ITAC</h1>
+    </header>
+    <span class="flex-expand"></span>
+    <!-- Theme select -->
+    <button mat-icon-button [matMenuTriggerFor]="theme_menu">
+      <span class="mat-button-wrapper">
+        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true"
+          data-mat-icon-type="font">format_color_fill</mat-icon>
+      </span>
+    </button>
+    <mat-menu #theme_menu="matMenu">
+      <button mat-menu-item *ngFor="let element of themes" (click)="setTheme(element)">
+        <span>{{ element }}</span>
+      </button>
+    </mat-menu>
+    <!-- Language select -->
+    <button mat-icon-button [matMenuTriggerFor]="language_menu">
+      <span class="mat-button-wrapper">
+        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true"
+          data-mat-icon-type="font">translate</mat-icon>
+      </span>
+    </button>
+    <mat-menu #language_menu="matMenu">
+      <button mat-menu-item *ngFor="let element of languages" (click)="setLanguage(element.code)">
+        <span>{{ element.label }}</span>
+      </button>
+    </mat-menu>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h2>{{menuTitle}}</h2>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidebar-container" autosize>
+  <mat-sidenav #sidenav mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+
+    <mat-nav-list *ngFor="let subMenu of routes">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="full-width" *ngIf="isExpanded || isShowing">Home</span>
+              <mat-icon mat-list-icon>home</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="isShowing || isExpanded">
+            <mat-list-item routerLink="/dashboard">Home Dashboard</mat-list-item>
+            <mat-list-item routerLink="/live-dashboard">Live Dashboard</mat-list-item>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="full-width" *ngIf="isExpanded || isShowing">Tracking</span>
+              <mat-icon mat-list-icon>location_searching</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="isShowing || isExpanded">
+            <mat-list-item href="#" routerLink="/tracking">Track on Map</mat-list-item>
+            <mat-list-item href="#" routerLink="/currentlocationtable">Track on Table</mat-list-item>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="full-width" *ngIf="isExpanded || isShowing">Reports</span>
+              <mat-icon mat-list-icon>trending_up</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="isShowing || isExpanded">
+            <mat-list-item routerLink="/routereport">Route Report</mat-list-item>
+            <mat-list-item routerLink="/distancereport">Distance Report</mat-list-item>
+            <mat-list-item routerLink="/monthlydistancereport">Monthly Distance Report</mat-list-item>
+            <mat-list-item routerLink="/speedreport">Speed Report</mat-list-item>
+            <mat-list-item routerLink="/usagereport">Usage Report</mat-list-item>
+            <mat-list-item routerLink="/acreport">AC Report</mat-list-item>
+            <mat-list-item routerLink="/fence-report">Fence Report</mat-list-item>
+            <mat-list-item routerLink="/eventreport">Event Report</mat-list-item>
+            <mat-list-item routerLink="/anomalySummary">Anomaly Report</mat-list-item>
+            <mat-list-item routerLink="/geofencereport">Geofence Report</mat-list-item>
+            <mat-list-item routerLink="/tripanomaly">Trip Anomaly Report</mat-list-item>
+            <mat-list-item routerLink="/rfidsummaryreport">RFID Report</mat-list-item>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="full-width" *ngIf="isExpanded || isShowing">Fleet</span>
+              <mat-icon mat-list-icon>commute</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="isShowing || isExpanded"   >
+            <mat-list-item *ngFor="let item of subMenu.fleet" [routerLink]="[item.route]" (click)="selectMenuItem(item.title)">{{item.title}}</mat-list-item>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="full-width" *ngIf="isExpanded || isShowing">Field Service</span>
+              <mat-icon mat-list-icon>alarm</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="isShowing || isExpanded">
+            <mat-list-item [routerLink]="['/', 'task-list', { type: 1 }]">Non-recurring tasks
+            </mat-list-item>
+            <mat-list-item [routerLink]="['/', 'task-list', { type: 2 }]">Recurring tasks</mat-list-item>
+            <mat-list-item routerLink="/forms">Forms</mat-list-item>
+            <mat-list-item routerLink="/place">Places</mat-list-item>
+            <mat-list-item [routerLink]="['/drivers', { paramKey: 'employee' }]">Employees</mat-list-item>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="full-width" *ngIf="isExpanded || isShowing">Device & settings</span>
+              <mat-icon mat-list-icon>settings_cell</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="isShowing || isExpanded">
+            <mat-list-item routerLink="/device-activation">Device Activation</mat-list-item>
+            <mat-list-item routerLink="/device-settings">Device Settings</mat-list-item>
+            <mat-list-item routerLink="/image-gallery" [queryParams]="{ t: 'image' }">Image Gallery
+            </mat-list-item>
+            <mat-list-item routerLink="/video-gallery" [queryParams]="{ t: 'video' }">Video Gallery
+            </mat-list-item>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="full-width" *ngIf="isExpanded || isShowing">Administration</span>
+              <mat-icon mat-list-icon>manage_accounts</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="isShowing || isExpanded">
+            <mat-list-item routerLink="/student-management">Manage Student</mat-list-item>
+            <mat-list-item routerLink="/manage-trips">Manage Trip</mat-list-item>
+            <mat-list-item routerLink="/manage-holiday">Manage Holidays</mat-list-item>
+            <mat-list-item routerLink="/manage-message">Manage Scroll Message</mat-list-item>
+            <mat-list-item routerLink="/offline">View Offlines</mat-list-item>
+            <mat-list-item routerLink="/device-audit">Device History</mat-list-item>
+            <mat-list-item routerLink="/packet-data">Raw Device Data</mat-list-item>
+            <mat-list-item>Announcement</mat-list-item>
+            <mat-list-item>Chat</mat-list-item>
+            <mat-list-item routerLink="/raise-ticket">Raise Ticket</mat-list-item>
+            <mat-list-item routerLink="/Joblistingsummary">View Jobs</mat-list-item>
+            <mat-list-item routerLink="/list-organization">Organization</mat-list-item>
+            <mat-list-item routerLink="/notification">Notification</mat-list-item>
+            <mat-icon mat-list-icon>home</mat-icon>
+
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- <div class="sidebar-content">Main content that resizes properly</div> -->
+  <div class="sidebar-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
