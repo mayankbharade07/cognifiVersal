@@ -1,0 +1,83 @@
+<!-- <a>Add-Custmer Model</a> -->
+<div mat-dialog-content class="mt-3">
+    <p class="p-head mx-5">Customer Information</p>
+    <!-------Left Div--------->
+    <form [formGroup]="customerForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 ">
+                    <mat-label id="label">Customer Name</mat-label>
+                </div>
+                <div class="col-md-12 col-sm-12 ">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Name" formControlName="name">
+                        <mat-error *ngIf="customerForm.get('name').hasError('required')">Name is Required </mat-error>
+                        <mat-error *ngIf="customerForm.get('name').hasError('pattern')">Enter Valid Name </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <mat-label id="label">Customer Number</mat-label>
+                </div>
+                <div class="col-md-12 col-sm-12  ">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Mobile Number" formControlName="phone" type="onlynumber">
+                        <mat-error *ngIf="customerForm.get('phone').hasError('required')">Customer Phone Number is
+                            Required </mat-error>
+                        <mat-error *ngIf="customerForm.get('phone').hasError('pattern')">Enter Valid Customer Phone
+                            Number </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <mat-label id="label">Email Address</mat-label>
+                </div>
+                <div class="col-md-12 col-sm-12  ">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Email" formControlName="email">
+                        <mat-error *ngIf="customerForm.get('email').hasError('required')">Email id is Required
+                        </mat-error>
+                        <mat-error *ngIf="customerForm.get('email').hasError('pattern')">Enter Valid Email id
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-------Right Div--------->
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12">
+                    <mat-label id="label">Address</mat-label>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Address" formControlName="address">
+                        <mat-error *ngIf="customerForm.get('address').hasError('required')"> Address Required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <mat-label id="label">Landmark</mat-label>
+                </div>
+                <div class="col-md-12 col-sm-12 ">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Landmark" formControlName="landmark">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <mat-label id="label">Notes</mat-label>
+                </div>
+                <div class="col-md-12 col-sm-12 ">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Notes" formControlName="notes">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div mat-dialog-action [align]="'center'">
+            <button mat-button class="btn btn1 mt-4 mx-3" (click)="submit()">Save</button>
+
+            <button mat-button class=" btn btn2 mt-4 mx-3" (click)="onNoClick()" type="submit">Cancel</button>
+        </div>
+    </form>
+</div>
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

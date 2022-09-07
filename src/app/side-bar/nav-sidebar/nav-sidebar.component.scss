@@ -1,0 +1,42 @@
+@import "~@angular/material/theming";
+@import "../../../sass/theme.scss";
+
+.mat-sidenav-container {
+  height: 91vh;
+  padding: 0px !important;
+}
+
+.mat-sidenav {
+  padding: 0px !important;
+  height: 100%;
+  width: auto;
+}
+
+.mat-sidenav-content {
+  padding: 20px;
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+  font-family: 'Poppins';
+}
+
+.flex-expand {
+  flex: 1 1 auto;
+}
+
+::ng-deep .mat-menu-panel {
+  overflow-x: hidden !important;
+}
+
+.mat-nav-list .list-item-active {
+  //font-weight: bold;
+  margin: auto;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  margin-left: 17px;
+}
+

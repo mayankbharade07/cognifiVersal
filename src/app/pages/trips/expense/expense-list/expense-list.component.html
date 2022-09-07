@@ -1,0 +1,261 @@
+<section>
+    <div class="container-fluid mt-2">
+        <!-- tabs -->
+        <div class="row">
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 mt-5">
+                <p class="mb-0 form-head">Manage Expense</p>
+                <!-- <table class="table-nobackground ml-3 mx-2" style="text-align: initial;">
+                    <button mat-stroked-button *ngIf="view != 'expense'" (click)="viewPage('expense')"
+                        style="border: none;font-family: 'Poppins';opacity: 0.7;">
+                        <p class="mb-0 form-head">Manage Expense</p>
+                    </button>
+                    <button mat-flat-button color="primary" *ngIf="view == 'expense'" (click)="viewPage('income')"
+                        style="background: #de1f2500;color: #000000; border-bottom: 2px solid #3F51B5;font-family: 'Poppins';">
+                        <p class="mb-0 form-head">Manage Expense</p>
+                    </button>
+
+                    <button mat-stroked-button *ngIf="view != 'income'" (click)="viewPage('income')"
+                        style="border:none;font-family: 'Poppins';opacity: 0.7;">
+                        <p class="mb-0 form-head">Manage Income</p>
+                    </button>
+                    <button mat-flat-button color="primary" *ngIf="view == 'income'" (click)="viewPage('expense')"
+                        style="background: #de1f2500;color: #000000; border-bottom: 2px solid #3F51B5;font-family: 'Poppins';">
+                        <p class="mb-0 form-head">Manage Income</p>
+                    </button>
+
+                </table> -->
+            </div>
+            <div class="col-sm-2 mb-2 my-5">
+                <button mat-button class="btn3" routerLink="/pages/Add-Expenses">
+                    Add expense
+                </button>
+            </div>
+        </div>
+        <!-- Start Manage Expense Block -->
+        <div class="clearfix">
+            <!-- Expense Filter -->
+            <div class="row mt-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form [formGroup]="expenseFilterForm">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-auto mt-3">
+                                    <div class="row">
+                                        <div class="col-auto" style="padding: 10px 0px;width: max-content;">
+                                            <mat-label class="label mt-1">
+                                                Select Date Range
+                                            </mat-label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <mat-form-field appearance="outline" style="font-size: 11px;">
+                                                <!-- <mat-label>Enter a date range</mat-label> -->
+                                               <b> <mat-date-range-input [rangePicker]="picker">
+                                                  <input matStartDate formControlName="fdt" placeholder="Start date">
+                                                  <input matEndDate formControlName="tdt" placeholder="End date">
+                                                </mat-date-range-input> </b>
+                                                <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-date-range-picker #picker></mat-date-range-picker>
+                                              
+                                                <!-- <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                                                <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error> -->
+                                              </mat-form-field>                                          
+                                        </div>
+                                    </div>
+                                </div>                               
+                                <div class="col-auto mt-3">
+                                    <div class="row">
+                                        <div class="col-auto"
+                                            style="text-align:center;padding: 12px 0px;width: max-content;">
+                                            <mat-label class="label mt-1">
+                                                Type
+                                            </mat-label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <mat-form-field appearance="outline" style="font-size: 11px">
+                                                <b><mat-select placeholder="Select Type" formControlName="exptype">
+                                                    <mat-option *ngFor="let data of expensestype" [value]="data.typeName">{{data.typeName}}</mat-option>
+                                                    <!-- <mat-option value="vehicleplate"><b>Vehicle Plate</b></mat-option>
+                                                    <mat-option value="username"><b>User Name</b></mat-option> -->
+                                                </mat-select></b>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto mt-4">
+                                    <span><button class="btn btn-apply" type="submit" (click)="expensesFilter()"
+                                            style="color: #ffff;">Apply</button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card my-4">
+                        <div class="row justify-content-between px-1">
+                            <div class="col-sm-6 px-4">
+                                <mat-form-field style="width: 26%;">
+                                    <input matInput (keyup)="applyFilter($event)" placeholder="Search.." #input>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6 mt-2">
+                                <span class="badge badge-secondary btn-s ml-4">
+                                    <i class="fa fa-print" aria-hidden="true" style="color:black;"></i>
+                                </span>
+                                <span class="badge badge-secondary btn-s ml-4">
+                                    <i class="fa fa-cloud-download" aria-hidden="true" style="color:black;"></i>
+                                </span>
+                                <span class="badge badge-secondary btn-s ml-4">
+                                    <i class="fa fa-cog" aria-hidden="true" style="color:black;"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Material Table For Expense List -->
+                        <div class="table-responsive px-5 pl-5">
+                            <table mat-table [dataSource]="expensesData" matSort
+                                (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+
+                                <!-- EXPENSE ID Column -->
+                                <ng-container matColumnDef="expenseId">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by number"
+                                        mat-sort-header>
+                                        Expense ID
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.expenseId}} </td>
+                                </ng-container>
+
+                                <!-- EXPENSES DATE Column -->
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by name"
+                                        mat-sort-header>
+                                        Date
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.expenseDate}} </td>
+                                </ng-container>
+
+                                <!-- EXPENSES TYPE Column -->
+                                <ng-container matColumnDef="expensetype">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by weight"
+                                        mat-sort-header>
+                                        Type
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">{{element.expenseTypeName}} </td>
+                                </ng-container>
+
+                                <!-- CURRENCY && AMOUNT Column-->
+                                <ng-container matColumnDef="amount">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol"
+                                        mat-sort-header>
+                                        Currency And Amount
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">{{element.currencySymbol}} {{element.amount}}
+                                    </td>
+                                </ng-container>
+
+                                <!-- TRIP ID && TRIP NAME Column -->
+                                <ng-container matColumnDef="tripid-name">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol"
+                                        mat-sort-header>
+                                        Trip ID & Name
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> <span *ngIf="!element.tripId">NA</span>{{element.tripId}} </td>
+                                   
+                                </ng-container>
+
+                                
+                                <!-- Vehical-Number && TRIP NAME Column -->
+                                <ng-container matColumnDef="vehical-number">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol"
+                                        mat-sort-header>
+                                        Vehicle Number
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.vehicleId ? element.vehicleId : 'NA'}} </td>
+                                    <!-- <td  mat-cell *matCellDef="let element"> --- </td> -->
+                                </ng-container>
+
+                                <!-- Driver Name && TRIP NAME Column -->
+                                <ng-container matColumnDef="driver-name">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol"
+                                        mat-sort-header>
+                                        Driver Name
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.deviceId  ? element.deviceId : 'NA'}} </td>
+                                    <!-- <td  mat-cell *matCellDef="let element"> --- </td> -->
+                                </ng-container>
+
+                                <!-- EXPENSES ADDED BY COLUMN -->
+                                <ng-container matColumnDef="user">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol"
+                                        mat-sort-header>
+                                        Added by user
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.orgName ? element.orgName : '---'}} </td>
+                                </ng-container>
+
+                                <!-- EXPENSES BILL STATUS COLUMN -->
+                                <ng-container matColumnDef="bill">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol"
+                                        mat-sort-header>
+                                        Expense/Bills Status
+                                    </th>
+                                    <!-- <td mat-cell *matCellDef="let element"> </td> -->
+                                    <td mat-cell *matCellDef="let element">
+                                        <span *ngIf="element.isApproved == false || element.isApproved == null" style="color: #FFAA2B;
+                                        font-weight: 600;font-size: 12px;">Pending</span>
+                                        <span *ngIf="element.isApproved == true" style="font-weight: 600;font-size: 12px;
+                                    color: #34C654;">Successful</span>
+                                     </td>
+                                </ng-container>
+
+                                <!-- ACTION COLUMN -->
+                                <ng-container matColumnDef="action">
+                                    <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                        Action
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        
+                                        <span class="badge badge-secondary btn-s ml-4"
+                                        style="cursor: pointer"
+                                            (click)="deleteExpense(element.expenseId)">
+                                            <i class="fa fa-trash"></i>
+                                        </span>
+                                        <span class="badge badge-secondary btn-s ml-4"
+                                        style="cursor: pointer;"
+                                            (click)="editExpenseData(element)">
+                                            <i class="fa fa-edit"></i>
+                                        </span>
+                                        <span class="badge badge-secondary btn-s ml-4" 
+                                        style="cursor: pointer;"
+                                            (click)="viewExpenseDetails(element)">
+                                            <i class="fa fa-eye" style="color: #3F51B5;">
+                                            </i>
+                                        </span>
+                                        
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row
+                                    *matHeaderRowDef="['expenseId','date','expensetype','amount','tripid-name','vehical-number','driver-name', 'user', 'bill', 'action']">
+                                </tr>
+                                <!-- <tr mat-header-row *matHeaderRowDef="['startDTonword', 'endDTonword', 'startDTreturn', 'endDTreturn', 'startDTactual', 'endDTactual']"></tr> -->
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="float: left;"
+                                aria-label="Select page of periodic elements">
+                            </mat-paginator>
+                        </div>
+                        <!-- Material Table For Expense List -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Manage Expense Block -->
+    </div>
+</section>
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

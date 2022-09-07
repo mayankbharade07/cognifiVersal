@@ -1,0 +1,96 @@
+<section>
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="body">
+                    <div class="row justify-content-between">
+                        <div class="col-sm-12 p-0">
+                            <p>Customer Information Listing > <span style="color: #2196F3;">Customer Information</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-sm-12 p-0">
+                            <p class="mb-0 form-head p-0">Customer Information</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div>
+
+                    <div class="row">
+                        <!-- <div class="row" *ngFor="let data of expensebyid;"> -->
+                        <div class="col-lg-5 col-md-5 col-sm-5 p-0">
+                            <div class="card p-4 my-5">
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Customer Name</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p>{{cutomerdetailsdatabyid.name}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Address</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p>{{cutomerdetailsdatabyid.address}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Landmark</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p>{{cutomerdetailsdatabyid.landmark}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Email Address</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p>{{cutomerdetailsdatabyid.email}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Phone Number</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p>{{cutomerdetailsdatabyid.phone}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Note</mat-label>
+                                    </div>
+                                    <div class="col-md-10 col-sm-10 incard">
+                                        <p>{{cutomerdetailsdatabyid.notes}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 col-md-7 col-sm-7"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

@@ -1,36 +1,40 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { THEMES} from './shared/constants';
-
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import {filter} from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'itac_ui';
-
-  themes = [
-    'Default',
-    'Dark',
-    'Light'
-  ]
-
-  constructor(public overlayContainer: OverlayContainer) { }
-
-  @HostBinding('class') componentCssClass: any;
-
-  ngOnInit(): void {
-    var currentTheme = localStorage.getItem("currentTheme");
-    var theme = currentTheme != 'undefined' ? currentTheme : 'Default';
-    this.setTheme(theme);
+export class AppComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
+  title(title: any) {
+    throw new Error('Method not implemented.');
   }
-
-  setTheme(theme: string) {
-    var colorTheme = THEMES[theme];
-    this.overlayContainer.getContainerElement().classList.remove('dark-theme','light-theme');
-    this.overlayContainer.getContainerElement().classList.add(colorTheme);
-    this.componentCssClass = colorTheme;
-    localStorage.setItem("currentTheme", theme);
+  version: any;
+  constructor(private router: Router) { }
+  ngOnInit(): void 
+  {
+    this.subscription = this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe(() => window.scrollTo(0, 0));
+    if (environment.production) {
+      if (location.protocol === 'https:') {
+        window.location.href = location.href.replace('https', 'http');
+      }
+    }
+  }
+  ngOnDestroy()
+  {
+    if(this.subscription)
+    {
+      this.subscription.unsubscribe();
+    }
   }
 }
+
+

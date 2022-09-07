@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { VehicleHomePageComponent } from './modules/vehicle/vehicle-home-page/vehicle-home-page.component';
-import { RouteReportComponent } from '././modules/reports/route-report/route-report.component';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'routereport', component: RouteReportComponent },
-  { path: 'vehicle', component: VehicleHomePageComponent },
-  { path: '**', redirectTo: '/', pathMatch: 'full' }
+  {
+    path: 'pages',
+    loadChildren: () => import('./pages/pages.module')
+      .then(m => m.PagesModule)
+  },
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '*', redirectTo: 'pages' },
 ];
 
+const config: ExtraOptions = {
+  useHash: false,
+  enableTracing: true
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

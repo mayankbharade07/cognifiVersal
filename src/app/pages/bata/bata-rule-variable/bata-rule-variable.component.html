@@ -1,0 +1,96 @@
+<section class="card">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row mb-4">
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 mt-5">
+                    <!-- <p class="mb-0 form-head">Manage Expense</p> -->
+                    <table class="table-nobackground ml-3 mx-2" style="text-align: initial;">
+                        <span class="mb-0 form-head" *ngIf="view != 'general'" (click)="viewPage('general')"
+                            style="border: none;font-family: 'Poppins';opacity: 0.7;">General
+                        </span>
+                        <span class="mb-0 form-head" color="primary" *ngIf="view == 'general'"
+                            (click)="viewPage('variable')"
+                            style="background: #de1f2500;color: #000000; border-bottom: 2px solid #3F51B5;font-family: 'Poppins';">
+                            General
+                        </span>
+
+                        <span class="mb-0 form-head" *ngIf="view != 'variable'" (click)="viewPage('variable')"
+                            style="border:none;font-family: 'Poppins';opacity: 0.7;">
+                            Variable
+                        </span>
+                        <span class="mb-0 form-head" color="primary" *ngIf="view == 'variable'"
+                            (click)="viewPage('general')"
+                            style="background: #de1f2500;color: #000000; border-bottom: 2px solid #3F51B5;font-family: 'Poppins';">
+                            Variable
+                        </span>
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="row" id="variable" *ngIf="view == 'variable'">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                            <div class="row justify-content-between p-3 mb-3" *ngFor="let data of dataVariable"
+                                id="row">
+                                <div class="col-auto para m-1"><span>Time Range</span></div>
+                                <div class="col-auto box m-1"><span>{{data.fromTime}}</span></div>
+                                <div class="col-auto box m-1"><span>{{data.toTime}}</span></div>
+                                <div class="col-auto para m-1"><span>Unit</span></div>
+                                <div class="col-auto box m-1"><span>{{type}}</span></div>
+                                <div class="col-auto para m-1"><span>Set Time</span></div>
+                                <div class="col-auto box m-1"><span>{{data.duration}} {{data.unit}}</span></div>
+                                <div class="col-auto para m-1"><span>{{data.amount}} {{currency}}</span></div>
+                            </div>
+                            <!-- <div class="justify-content-between">
+                                <span>Time Range</span>
+                                <span>10:00 PM</span>
+                                <span>10:00 PM</span>
+                                <span>Unit</span>
+                                <span>Time</span>
+                                <span>Set Time</span>
+                                <span>45 min</span>
+                                <span>Amount</span>
+                                <span>120 Rs</span>
+                               </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="general" *ngIf="view == 'general'">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                            <div class="row justify-content-between p-3 mb-3" *ngFor="let data of dataGeneral"
+                                id="row">
+                                <div class="col-auto para m-1"><span>Set Time</span></div>
+                                <div class="col-auto box m-1"><span>{{data.timeOrKms}} {{data.unit}}</span></div>
+                                <div class="col-auto para m-1"><span>Amount</span></div>
+                                <div class="col-auto para m-1"><span>{{data.amount}} {{currency}}</span></div>
+                            </div>
+                            <!-- <div class="justify-content-between">
+                                <span>Time Range</span>
+                                <span>10:00 PM</span>
+                                <span>10:00 PM</span>
+                                <span>Unit</span>
+                                <span>Time</span>
+                                <span>Set Time</span>
+                                <span>45 min</span>
+                                <span>Amount</span>
+                                <span>120 Rs</span>
+                               </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

@@ -4,41 +4,20 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://65.0.133.164",
-  reportURL: "http://65.0.133.164",
-  dashboardBaseURL: "http://13.235.135.219/grafana/",
-  currentInfoURL: "d/IyC3wYknk/current-day-info",
-  homeDashboardURL: "d/L0N-9ZeMk/home-dashboard",
-  keycloak: {
-    // Url of the Identity Provider
-    issuer: 'http://13.233.229.160:8080/auth',
+  config: {
 
-    // Realm3
-    realm: 'itac20',
-
-    // The SPA's id. 
-    // The SPA is registerd with this id at the auth-serverß
-    //clientId: 'itac_app_dev',
-
-    //credentials: {secret: '8a693ac8-f8b9-4e8d-8b98-7aa7461db205'},
-    clientId: 'itac_app',
-
-    credentials: {secret: 'b43f4799-51a3-47f2-9207-96a51d766e93'},
-    //clientId: 'itac_app_qa',
-
-    //credentials: {secret: '685bd6bb-d1b2-46a1-b833-637a1f1a6bae'},
-  },
-  firebase: {
-    apiKey: "AIzaSyDR5G1uNjOhv7EDfCy5vhez5vBQ-2EOElU",
-    authDomain: "schoolitacnotifier.firebaseapp.com",
-    databaseURL: "https://schoolitacnotifier.firebaseio.com",
-    projectId: "schoolitacnotifier",
-    storageBucket: "schoolitacnotifier.appspot.com",
-    messagingSenderId: "728470800782",
-    appId: "1:728470800782:web:f90e4cec1937c1ac38bcdf"
+    // API_URL : 'http://192.168.1.50:8076', //devtsging income/expense
+    // API_URL_BATA: 'http://192.168.1.50:8071', //devstaging bata/ trip/etc
+    // API_URL : 'https://cogniphiapibackend.moreyeahs.in',
+    // API_URL_BATA: 'https://batacongniphiapibackned.moreyeahs.in',
+    API_URL : 'http://cogniphienhancebackend.moreyeahs.in', // new uat for Income/Expense
+    API_URL_BATA: 'http://batacogniphienhancebackend.moreyeahs.in', //new uat for Bata/Trip/Customer/Currency/Base Location
+    API_URL_ITAC: 'http://13.233.175.113:',
+    // API_URL : 'http://d0d3-103-15-67-130.ngrok.io',
+    // API_URL_BATA : 'http://a8df-103-15-67-130.ngrok.io',
+   
   }
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

@@ -1,0 +1,58 @@
+.badge{
+    background: #3f51b500;
+    color: #3F51B5;
+    font-size: 17px;
+    float: right;
+}
+table {
+    text-align: center;
+    width: 100%;
+    box-shadow: none !important;
+  }
+  :host ::ng-deep .mat-sort-header-container {
+    // display: flex;
+    justify-content: center;
+    
+ }
+ th.mat-header-cell {
+    text-align: center;
+    border: 1px solid #CCC;
+    padding: 0 !important;
+    background-color: #F3F3F3;
+}
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+.btn1 {
+    float: right;
+    color: #3F51B5 !important;
+    border: 1px solid #3F51B5;
+    border-radius: 4px;
+    margin-right: 7px;
+    
+}
+.btn2 {
+    float: right;
+    color: #e3e4eb;
+    background-color: #3F51B5;
+    border: 1px solid #3F51B5;
+    border-radius: 4px;
+    margin-right: 7px;
+    
+}
+
+.label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+}
+.customer-head{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 30px;
+color: #000000;
+}
+
+

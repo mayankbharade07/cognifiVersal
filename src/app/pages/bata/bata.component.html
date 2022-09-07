@@ -1,0 +1,364 @@
+<section>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 p-0">
+                    <div class="page-head">
+                        <p class="locate">DashBoard > <span style="color: #2196F3;">Bata Allowance</span></p>
+                        <div class="body">
+                            <p class="form-head">Bata Allowance</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 p-0" [align]="'right'" style="margin-top: 1.4%;">
+                    <span style="float:right;margin-top:25px;">
+                        <button mat-button routerLink="/pages/Bata-Rule" class="p-2 m-0">
+
+                            <i class="fa fa-cog p-0" id="set-icon" aria-hidden="true"><span class="mx-3 mt-0 mb-2"
+                                    style="font-size:20px;">Customize</span></i>
+
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <!-- Manufacturer -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 p-0">
+                    <form [formGroup]="batashortdata">
+                    <div class="card p-5">
+                        <div class="row m-0 p-0">
+                        
+                                
+                                <!-- Vehicle Block -->
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"
+                                    style="border-right: 1px solid #EFEFEF;padding-left: 0;">
+                                    <div class="row">
+                                    
+                                        <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12">
+                                            <mat-label class="bata-label">Manufacturer</mat-label>
+                                            <mat-form-field class="example-full-width" appearance="outline"
+                                                style="font-size: 14px;">
+                                               <b><mat-select placeholder="Toyota" formControlName="manufacturer">
+                                                    <mat-option [value]="data.id" *ngFor="let data of manufacturerdata"
+                                                        style="font-weight: 500;font-size: 14px;">
+                                                        <b>{{data.manufactureName}}</b></mat-option>
+
+                                                </mat-select></b>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+                                            <mat-label class="bata-label">Type</mat-label>
+                                            <mat-form-field class="example-full-width" appearance="outline"
+                                                style="font-size: 14px">
+                                                <b><mat-select placeholder="Car" formControlName="vehicletype">
+                                                    <mat-option [value]="data" *ngFor="let data of modaldata"  style="font-weight: 500;font-size: 14px;"><b>{{data}}</b>
+                                                    </mat-option>
+                                                </mat-select></b>
+                                            </mat-form-field>
+                                        </div>
+                                    
+                                    
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+                                            <mat-label class="bata-label">Model</mat-label>
+                                            <mat-form-field class="example-full-width" appearance="outline"
+                                                style="font-size: 14px">
+                                                <b><mat-select placeholder="Scorpio" formControlName="modal">
+                                                    <mat-option value="Polo" style="font-weight: 500;font-size: 14px;"><b>Polo</b></mat-option>
+                                                    <mat-option value="Rapid" style="font-weight: 500;font-size: 14px;"> <b>Rapid</b></mat-option>
+                                                    <mat-option value="Scorpio" style="font-weight: 500;font-size: 14px;"> <b>Scorpio</b></mat-option>
+                                                    <mat-option value="City" style="font-weight: 500;font-size: 14px;"> <b>City</b></mat-option>
+                                                    <mat-option value="Civic" style="font-weight: 500;font-size: 14px;"> <b>Civic</b></mat-option>
+                                                </mat-select></b>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 m-0 p-0 mt-5">
+                                            <button type="button" class="btn View-btn mt-0" (click)="ViewRuleSet()">View Rule Set</button>
+                                            <button type="button" class="btn add-btn mt-0">Apply</button>
+                                           </div>
+                                </div>
+                           
+                        </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            <br>
+            <!-- filter && table of Bata -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 p-0">
+                    <div class="card p-3">
+                        <p class="table-head">Filters</p>
+                        <div>
+                            <div class="row clearfix">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="f-block">
+                                        <div class="body">
+                                            <!-- filter form -->
+                                            <form>
+                                                <div class="row p-0 m-0">
+                                                    <div class="col-auto p-0">
+                                                        <mat-label style="display: block;">Type </mat-label>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <b><mat-select placeholder="Car">
+                                                                <mat-option value="Car">Car</mat-option>
+                                                                <mat-option value="Bus">Bus</mat-option>
+                                                                <mat-option value="Auto">Auto</mat-option>
+                                                                <mat-option value="Bike">Bike</mat-option>
+                                                            </mat-select></b>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-auto ">
+                                                        <mat-label style="display: block;">Model</mat-label>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <b><mat-select placeholder="Yaris">
+                                                                <mat-option value="Yaris">Yaris</mat-option>
+                                                                <mat-option value="Thar">Thar</mat-option>
+                                                                <mat-option value="Amaze">Amaze</mat-option>
+                                                                <mat-option value="Suv">Suv</mat-option>
+                                                            </mat-select></b>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <mat-label style="display: block;">Vehicle License Plate
+                                                        </mat-label>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <b><mat-select placeholder="2010">
+                                                                <mat-option value="2010">2010</mat-option>
+                                                                <mat-option value="6324">6324</mat-option>
+                                                                <mat-option value="3623">3623</mat-option>
+                                                                <mat-option value="3773">3773</mat-option>
+                                                            </mat-select></b>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <mat-label style="display: block;">Trip ID</mat-label>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <b><mat-select placeholder="Select Trip ID">
+                                                                <mat-option value="22">22</mat-option>
+                                                                <mat-option value="43">43</mat-option>
+                                                                <mat-option value="98">98</mat-option>
+                                                                <mat-option value="64">64</mat-option>
+                                                            </mat-select></b>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <mat-label style="display: block;">Driver Name </mat-label>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <b><mat-select placeholder="Select Driver Name">
+                                                                <mat-option value="Arun">Arun</mat-option>
+                                                                <mat-option value="Sourabh">Sourabh</mat-option>
+                                                                <mat-option value="John">John</mat-option>
+                                                                <mat-option value="Akash">Akash</mat-option>
+                                                            </mat-select></b>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                    <mat-label style="display: block;">From to Date</mat-label>
+                                                    <mat-form-field  appearance="outline">
+                                                        <b><mat-date-range-input [rangePicker]="picker">
+                                                          <input matStartDate placeholder="Start date">
+                                                          <input matEndDate placeholder="End date">
+                                                        </mat-date-range-input></b>
+                                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                        <mat-date-range-picker #picker></mat-date-range-picker>
+                                                      </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-auto p-0">
+                                                        <mat-label style="display: block;">Payment Status</mat-label>
+                                                        <mat-form-field class="example-full-width" appearance="outline">
+                                                            <b><mat-select placeholder="Select Payment Status">
+                                                                <mat-option value="Pending">Pending</mat-option>
+                                                                <mat-option value="Cash">Cash</mat-option>
+                                                                <mat-option value="Online">Online</mat-option>
+                                                            </mat-select></b>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-auto mt-2 p-3"
+                                                        [align]="'center'">
+                                                        <button type="button" class="btn add-btn">Apply</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Bata Allowance Table Bata -->
+                        <div class="row justify-content-between m-0 p-0">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 px-4 m-0 p-0">
+                                <mat-form-field style="width: 26%;">
+                                    <input matInput placeholder="Search" (keyup)="applyFilter($event)" #input>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12  mt-2 ">
+                                <span class="badge badge-secondary btn-s ml-4">
+                                    <i class="fa fa-print" aria-hidden="true" style="color:black;"></i>
+                                </span>
+                                <span class="badge badge-secondary btn-s ml-4">
+                                    <i class="fa fa-cloud-download" aria-hidden="true" style="color:black;"></i>
+                                </span>
+                                <span class="badge badge-secondary btn-s ml-4">
+                                    <i class="fa fa-cog" aria-hidden="true" style="color:black;"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="table-responsive p-4 m-0 p-0">
+                            <table mat-table [dataSource]="dataSource" matSort
+                                (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+
+                                <!-- Trip ID And Name Column -->
+                                <ng-container matColumnDef="tripId">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                                        sortActionDescription="Sort by number">
+                                        Trip ID / Name
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">{{element.tripName}}/ Trip ID {{element.tripId}} </td>
+                                </ng-container>
+
+                                <!-- Vehicle Number Column -->
+                                <ng-container matColumnDef="VehicleType">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                                        sortActionDescription="Sort by name">
+                                        Vehicle Number
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"><span style=" color: #2196F3;">{{element.vehicleRegistrationNumber}}</span></td>
+                                </ng-container>
+                                <!-- Driver Name Column -->
+                                <ng-container matColumnDef="DriverName">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                                        sortActionDescription="Sort by weight">
+                                        Driver Name
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.driverName}} </td>
+                                </ng-container>
+                                <!-- Planned Columns -->
+                                <ng-container matColumnDef="planned">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="3"
+                                        sortActionDescription="Sort by symbol">
+                                        Planned
+                                    </th>
+                                </ng-container>
+
+                                <ng-container matColumnDef="startDTplanned">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                        sortActionDescription="Sort by symbol">
+                                        Date | Time
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.plannedTripStartDate}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="endDTplanned">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                        sortActionDescription="Sort by symbol">
+                                        Time/Distance
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">{{element.plannedTripRun}} {{element.plannedTripUnit}}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="plannedamount">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                        sortActionDescription="Sort by symbol">
+                                        Amount(Rs)
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"><span style=" color: #2196F3;">  {{element.plannedTripAmount}}</span></td>
+                                </ng-container>
+
+                                <!-- Actual Columns -->
+                                <ng-container matColumnDef="actual">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="3"
+                                        sortActionDescription="Sort by symbol">
+                                        Actual 
+                                    </th>
+                                </ng-container>
+
+                                <ng-container matColumnDef="startDTactual">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                        Date | Time
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.actualTripStartDate}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="endDTactual">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                        sortActionDescription="Sort by symbol">
+                                        Time/Distance
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.actualTripTripRun}} {{element.actualTripUnit}}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="actualamount">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                        sortActionDescription="Sort by symbol">
+                                        Amount(Rs)
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"><span style=" color: #2196F3;">   {{element.actualTripAmount}}</span> </td>
+                                </ng-container>
+
+                                <!-- Trip Status Column-->
+                                <ng-container matColumnDef="Status">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                                        sortActionDescription="Sort by symbol">
+                                        Payment Status
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">  
+                                        <div class="col">
+                                            <mat-select class="status" placeholder="paid" formControlName="unit">
+                                                <mat-option 
+                                                    [(ngModel)]="value" value="Paid" >
+                                                    Paid
+                                                </mat-option>
+                                                <mat-option   [(ngModel)]="value" value="Pending"  >
+                                                    Pending
+                                                </mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+
+                                <!-- Trip Type Column-->
+                                <ng-container matColumnDef="perfomance">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                                        sortActionDescription="Sort by symbol">
+                                        Action
+                                    </th>
+                                    <!-- <td mat-cell *matCellDef="let element"> {{element.perfomance}} </td> -->
+                                    <td mat-cell *matCellDef="let element">
+                                        <span class="badge badge-secondary btn-s ml-4">
+                                            <i class="fa fa-trash"></i>
+                                        </span>                                        
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row
+                                    *matHeaderRowDef="['tripId','VehicleType','planned', 'actual','DriverName','Status','perfomance']">
+                                </tr>
+                                <tr mat-header-row
+                                    *matHeaderRowDef="['startDTplanned', 'endDTplanned', 'plannedamount', 'startDTactual', 'endDTactual', 'actualamount']">
+                                </tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="float: left;"
+                                aria-label="Select page of periodic elements">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

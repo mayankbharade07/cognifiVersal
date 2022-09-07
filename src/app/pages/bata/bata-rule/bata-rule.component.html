@@ -1,0 +1,312 @@
+<section>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0">
+                    <div class="page-head">
+                        <div class="body">
+                            <p class="form-head">Bata Rules</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="card p-4">
+                <form [formGroup]="bataRuleForm">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 vehicle mt-5">
+                            <!-- Vehicle Setting -->
+                            <div class="row ml-0">
+                                <b>Vehicle Setting</b>
+                                <div class="col-md-6 block mt-4">
+                                    <div class="row mt-3">
+                                        <div class="col-md-5 col-sm-5">
+                                            <p class="block-p">Manufacturer</p>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <mat-select id="vehicle" formControlName="manufacturer">
+                                                <mat-option [value]="data.manufactureName"
+                                                    *ngFor="let data of manufacturerdata">{{data.manufactureName}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="bataRuleForm.get('manufacturer').hasError('required')">Manufacturer is Required </mat-error>
+                                        </div>
+                                        <div class="col-md-5 col-sm-5">
+                                            <p class="block-p">Type</p>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <mat-select id="vehicle" formControlName="vehicleType" >
+                                                <mat-option value="Car" *ngFor="let data of modaldata">{{data}}
+                                                </mat-option>
+
+                                            </mat-select>
+                                            <mat-error *ngIf="bataRuleForm.get('vehicleType').hasError('required')">VehicleType is Required </mat-error>
+                                        </div>
+                                        <div class="col-md-5 col-sm-5">
+                                            <p class="block-p">Model</p>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <mat-select id="vehicle" formControlName="vehicleModel" >
+                                                <mat-option value="Yaris">Yaris</mat-option>
+                                                <mat-option value="BMW">BMW</mat-option>
+                                                <mat-option value="Scorpio">Scorpio</mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="bataRuleForm.get('vehicleModel').hasError('required')">VehicleModel is Required </mat-error>
+                                        </div>
+                                        <div class="col-md-5 col-sm-5">
+                                            <p class="block-p">Select
+                                                Time/Distance</p>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <mat-select id="vehicle" formControlName="bataType"
+                                                (selectionChange)="bataonbasis($event.value)">
+                                                <mat-option value="Time">Time</mat-option>
+                                                <mat-option value="Distance">Distance</mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="bataRuleForm.get('bataType').hasError('required')">BataType is Required </mat-error>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fixed Parameter -->
+                            <div class="row ml-0">
+                                <b>Fixed Parameter</b>
+                                <!-- In Station -->
+                                <div class="col-md-6 block mt-4">
+                                    <div class="row mt-3">
+                                        <div class="col-md-11 col-sm-11">
+                                            <p class="">In Station</p>
+                                        </div>
+                                        <div class="col-md-5 col-sm-5">
+                                            <p class="block-p">Minimum</p>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                        <input  id="vehicle" style="width:100%;" placeholder="Enter"  formControlName="inStationMinimumCriteria">
+                                        <mat-error *ngIf="bataRuleForm.get('inStationMinimumCriteria').hasError('pattern')">Enter only number
+                                        </mat-error>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <mat-select *ngIf="basisvalue" [(ngModel)]="selectedHour1"
+                                                formControlName="inStationUnit">
+                                                <mat-option value="Hours">Hours</mat-option>
+                                                <mat-option value="Minute">Minute</mat-option>
+                                            </mat-select>
+                                            <mat-select *ngIf="!basisvalue" [(ngModel)]="selectedHour1"
+                                                formControlName="inStationUnit">
+                                                <mat-option value="Kms">Kms</mat-option>
+                                            </mat-select>
+                                        </div>
+                                        <div class="col-md-5 col-sm-5">
+                                            <p class="block-p">Amount</p>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <input style="width:100%;" placeholder="Enter" id="vehicle" type="text"
+                                                formControlName="inStationAmount">
+                                                <mat-error *ngIf="bataRuleForm.get('inStationAmount').hasError('pattern')">Enter only number</mat-error>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <mat-select [(ngModel)]="selectedRs" formControlName="instationAmountType">
+                                                <mat-option value="Rs">Rs</mat-option>
+                                                <mat-option value="Dollar">Dollar</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Out Station -->
+                            <div class="col-md-6 block  mx-3">
+                                <div class="row mt-3">
+                                    <div class="col-md-11 col-sm-11">
+                                        <p>Out Station</p>
+                                    </div>
+                                    <div class="col-md-5 col-sm-5">
+                                        <p class="block-p">Minimum</p>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <input  style="width:100%;" id="vehicle" placeholder="Enter" type="text"
+                                            formControlName="outStationMinimumCriteria">
+                                            <mat-error *ngIf="bataRuleForm.get('outStationMinimumCriteria').hasError('pattern')">Enter only number</mat-error>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <mat-select *ngIf="basisvalue" [(ngModel)]="selectedHour1"
+                                            formControlName="outStationUnit">
+                                            <mat-option value="Hours">Hours</mat-option>
+                                            <mat-option value="Minute">Minute</mat-option>
+                                        </mat-select>
+                                        <mat-select *ngIf="!basisvalue" [(ngModel)]="selectedHour1"
+                                            formControlName="outStationUnit">
+                                            <mat-option value="Kms">Kms</mat-option>
+                                        </mat-select>
+                                    </div>
+                                    <div class="col-md-5 col-sm-5">
+                                        <p class="block-p">Amount</p>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <input  style="width:100%;" id="vehicle" placeholder="Enter" type="text"
+                                            formControlName="outStationAmount">
+                                            <mat-error *ngIf="bataRuleForm.get('outStationAmount').hasError('pattern')">Enter only number</mat-error>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <mat-select [(ngModel)]="selectedRs" formControlName="outstationAmountType">
+                                            <mat-option value="Rs">Rs</mat-option>
+                                            <mat-option value="Dollar">Dollar</mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Set time rule as per time basis -->
+                            <div class="col-md-11 block  mx-3">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <p> <b>Time</b> (Set the time rules for bata allowance)</p>
+                                    </div>
+                                    <div class="row block" formArrayName="bataSettingSlabs"
+                                        *ngFor="let item of bataRuleForm.get('bataSettingSlabs')['controls']; let i = index;">
+                                        <div class="row m-0" [formGroupName]="i">
+
+                                            <div class="row m-0 p-0" style="width: 100%;">
+                                                <div class="col-md-4 col-sm-3">
+                                                    <input  style="width:100%;" id="vehicle" type="text"
+                                                        placeholder="Time" formControlName="timeOrKms">
+                                                        
+                                                </div>
+                                                <div class="col-md-2 col-sm-2">
+                                                    <mat-select [(ngModel)]="selectedHour3" placeholder="Time Type"
+                                                        formControlName="unit">
+                                                        <mat-option value="Minute">Minute</mat-option>
+                                                        <mat-option value="Hours">Hours</mat-option>
+                                                    </mat-select>
+                                                </div>
+                                                <div class="col-md-3 col-sm-2">
+                                                    <input  style="width:100%;" id="vehicle" type="text"
+                                                        placeholder="amount" formControlName="amount">
+                                                </div>
+                                                <div class="col-md-2 col-sm-2">
+                                                    <mat-select [(ngModel)]="selectedRs"
+                                                        formControlName="timeamounttype">
+                                                        <mat-option value="Rs">Rs</mat-option>
+                                                        <mat-option value="Dollar">Dollar</mat-option>
+                                                    </mat-select>
+                                                </div>
+                                                <div class="col-md-1 col-sm-1">
+                                                    <span class="badge badge-secondary btn-s ml-4"
+                                                        style="cursor: pointer;"
+                                                        (click)="removebataSettingSlabsValue(i)">
+                                                        <i class="fa fa-trash"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button mat-button class="button mx-3" (click)="addItem()">
+                                        Add New <i class="fa fa-plus-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- LEFT Side -->
+                        <div class="col-lg-6 col-md-12 col-sm-12 mt-5">
+                            <!-- Variable Perameter -->
+                            <div class="col-md-8 mt-5 mx-5">
+                                <b>Variable Perameter</b>
+                                <div class="col-md-10 block mt-4" formArrayName="bataSettingTimeRanges"
+                                    *ngFor="let item of bataRuleForm.get('bataSettingTimeRanges')['controls']; let j = index;">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="row mt-3" [formGroupName]="j">
+                                                <div class="col-md-4 col-sm-4">
+                                                    <p>Time Range</p>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input   [owlDateTimeTrigger]="dt1" placeholder="Select Time"
+                                                        [owlDateTime]="dt1" id="vehicle" style="width:100%;"
+                                                        formControlName="fromTime">
+                                                    <owl-date-time [pickerType]="'timer'" #dt1></owl-date-time>
+
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input  [owlDateTimeTrigger]="dt2" placeholder="Select Time"
+                                                        [owlDateTime]="dt2" id="vehicle" style="width:100%;"
+                                                        formControlName="toTime">
+                                                    <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <p class="block-p">Set time</p>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input  style="width:100%;" id="vehicle" formControlName="duration"
+                                                        type="text">
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <mat-select [(ngModel)]="selectedHour4" formControlName="unit">
+                                                        <mat-option value="Minute">Minute</mat-option>
+                                                        <mat-option value="Hours">Hours</mat-option>
+                                                    </mat-select>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <p class="block-p">Amount</p>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input  style="width:100%;" formControlName="amount" id="vehicle"
+                                                        type="text">
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <mat-select [(ngModel)]="selectedRs"
+                                                        formControlName="varamounttype">
+                                                        <mat-option value="Rs">Rs</mat-option>
+                                                        <mat-option value="Dollar">Dollar</mat-option>
+                                                    </mat-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <span class="badge badge-secondary btn-s ml-4 mt-2"
+                                            style="cursor: pointer;"
+                                            (click)="removebataSettingTimeRangesValue(j)">
+                                            <i class="fa fa-trash"></i>
+                                        </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <button mat-button class="button mx-1" (click)="addtimerangearray()">
+                                        Add New <i class="fa fa-plus-circle"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-12 m-0 p-0 mt-4">
+                                    <div class="col-md-3 col-sm-3 p-0  mx-1">
+                                        <span><button class="btn btn1 mt-2" (click)="Submit()"
+                                                type="submit">Apply</button></span>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <span><button class=" btn btn2 mt-2" type="submit" (click)="Submit()">Apply
+                                                All</button></span>
+                                    </div>
+                                    <div class="col-md-5 col-sm-5 mx-4  mt-3">
+                                        <div class="block-p" type="button" (click)="openDialog()"><u>
+                                                <mat-label>Select Model</mat-label>
+                                            </u></div>
+                                        <!-- <a>Select Model</a> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

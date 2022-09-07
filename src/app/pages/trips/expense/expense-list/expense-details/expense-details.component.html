@@ -1,0 +1,143 @@
+<section>
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="body">
+                    <div class="row justify-content-between">
+                        <div class="col-sm-12 p-0">
+                            <p>Accounts > Manage Expense > <span style="color: #2196F3;">Expense Details</span></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-sm-12 p-0">
+                            <p class="mb-0 form-head p-0">Expense Details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card pb-5">
+
+                    <div class="row">
+                        <!-- <div class="row" *ngFor="let data of expensebyid;"> -->
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <div class="block">
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Expense ID</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{expensebyid.expenseId}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Date</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{expensebyid.expenseDate | date}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Type</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{expensebyid.expenseTypeName}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Title</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">I was pay with my personal wallet</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Amount</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{expensebyid.amount}} {{expensebyid.currencyName}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Trip ID & Name</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">Trip ID: 95918-5ec3b69a
+                                            Geofence Test</p>
+                                    </div>
+                                </div>
+
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Expenses Added By</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data" *ngIf="!expensebyid.orgName">Uday Sharma</p>
+                                        <p class="left-data">{{expensebyid.orgName}}</p>
+                                    </div>
+                                </div>
+                                <!--         
+                                    <div class="row" id="details">
+                                        <div class="col-md-6 col-sm-6">
+                                            <mat-label class="label">Expenses Added Date</mat-label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <p class="left-data">{{expensebyid.insertedOn | date}}</p>
+                                        </div>
+                                    </div>
+        
+                                    <div class="row" id="details">
+                                        <div class="col-md-6 col-sm-6">
+                                            <mat-label class="label">Expenses Added Time</mat-label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <p class="left-data">03:45 PM</p>
+                                        </div>
+                                    </div> -->
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div *ngIf="!expensebyid.imageUrl1" class="block"
+                                style="text-align: center;">
+                                <span>Image Not Found</span>
+                            </div>
+                            <div class="block" *ngIf="expensebyid.imageUrl1">
+                                <img src={{expensebyid.imageUrl1}} alt="">
+                            </div>
+                            <div class="row" *ngIf="expensebyid.imageUrl1">
+                                <div class="col-md-7 col-sm-7 m-0">
+                                    <span>File name</span>
+                                    <br>
+                                    <span style="font-weight: 600;">img2153215751-05-05-2022</span>
+                                </div>
+                                <div class="col-md-5 col-sm-5">
+                                    <a href={{expensebyid.imageUrl1}} target="_self" download><button type="button"
+                                            class="btn add-btn">Download</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

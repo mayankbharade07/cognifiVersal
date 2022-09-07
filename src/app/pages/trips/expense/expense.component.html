@@ -1,0 +1,199 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0">
+                <div class="page-head">
+                    <div class="body">
+                        <div class="row justify-content-between">
+                            <div class="col-sm-12 p-0">
+                                <p>Accounts > Manage Expense > <span style="color: #2196F3;">
+                                        {{editData == true ? 'Edit-Expense' : 'Add-Expense'}}
+                                    </span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Expenses Form -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <form [formGroup]="expenseForm">
+                    <div class="card p-5">
+                        <div class="body">
+                            <div class="row mt-3">
+                                <!-- Left Side -->
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 myclass">
+                                    <div *ngIf="!fileName" class="upload-btn">
+                                        <input type="file" formControlName="imageUrl1"
+                                            (change)="handleFileInput2($event)" style="display: none;" name="file"
+                                            id="file" />
+                                        <label for="file">
+                                            <i class="fa fa-upload" id="upload"></i>
+                                        </label>
+                                        <p>(Attach receipts from
+                                            <span style="color: #3F51B5;">computer</span>
+                                            or <span style="color: #3F51B5;">cloud</span> )
+                                        </p>
+                                    </div>
+                                    <img [src]="fileName" *ngIf="fileName" style="height: 300px; width:500px">
+                                    <div>
+                                        <button type="reset" *ngIf="fileName" class=" btn btn2 sub-btn"
+                                            (click)="resetimg()">Cancel</button>
+                                    </div>
+                                </div>
+
+                                <!-- Right Side -->
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="expense-form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-label id="label">Select Expense Date<span class=mandatory>*</span></mat-label>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput placeholder="DD/MM/YYYY" [matDatepicker]="picker1"
+                                                    formControlName="expenseDate">
+                                                <mat-datepicker-toggle matSuffix [for]="picker1">
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #picker1></mat-datepicker>
+                                                <mat-error *ngIf="expenseForm.get('expenseDate').hasError('required')">
+                                                    Expense Date is Required </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-label id="label">Select Expense Type <span class=mandatory>*</span></mat-label>
+                                            <mat-form-field appearance="outline">
+                                                <mat-select placeholder="Expense Type" formControlName="expenseTypeId"
+                                                    (selectionChange)="getexpensetype($event.value)">
+                                                    <mat-option [value]="data.typeId" *ngFor="let data of expensestype">
+                                                        {{data.typeName}}</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="expenseForm.get('expenseTypeId').hasError('required')">
+                                                    Expense type name is Required </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-label id="label">Expense Title <span class=mandatory>*</span></mat-label>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput placeholder="Expense Title" formControlName="expensetitle">
+                                                <mat-error *ngIf="expenseForm.get('expensetitle').hasError('required')">
+                                                    Expense Title is Required </mat-error>
+                                                <mat-error *ngIf="expenseForm.get('expensetitle').hasError('pattern')">Enter
+                                                    Valid Expense Title </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <mat-label id="label">Currency <span class="mandatory">*</span></mat-label>
+                                            <mat-form-field appearance="outline">
+                                                <mat-select placeholder="CurrencyName" formControlName="currencyName"
+                                                    (selectionChange)="getCurrency1($event.value)">
+                                                    <mat-option *ngFor="let data of allCurrency" [value]="data.id">
+                                                        {{data.name}}</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="expenseForm.get('currencyName').hasError('required')">
+                                                    Currency is Required </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <mat-label id="label">Amount <span class="mandatory">*</span></mat-label>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput placeholder="Enter Amount" formControlName="amount">
+                                                <mat-error *ngIf="expenseForm.get('amount').hasError('required')">Amount
+                                                    is Required </mat-error>
+                                                <mat-error *ngIf="expenseForm.get('amount').hasError('pattern')">Enter
+                                                Amount should be greater than zero / Amount can't exceed 6 digits / Amount can't 
+                                                start with zero </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-label id="label">Description</mat-label>
+                                            <mat-form-field appearance="outline" style="border:none;" class="mat-field">
+                                                <textarea matInput placeholder="Enter Description"
+                                                    formControlName="description"></textarea>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-label id="label">Reference #</mat-label>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput placeholder="Reference" formControlName="reference">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-label id="label">Link To Either</mat-label><span class=mandatory>*</span>
+                                            <mat-form-field appearance="outline">
+                                                <mat-select placeholder="Link To.."
+                                                    (selectionChange)="openDropdown($event.value)"
+                                                    formControlName="linktype">
+                                                    <mat-option value="Other">Other</mat-option>
+                                                    <mat-option value="Vehicle">Vehicle</mat-option>
+                                                    <mat-option value="Driver">Driver</mat-option>
+                                                    <mat-option value="Trip">Trip</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="expenseForm.get('linktype').hasError('required')">Link To
+                                                    Either is Required </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row" *ngIf="showhideTripDropdown">
+                                        <mat-form-field appearance="outline">
+                                            <mat-select placeholder="Trip ID.." formControlName="tripId"  (selectionChange)="openDropdownTrip($event.value)">
+                                                <mat-option *ngFor="let data of tripsId" [value]="data.tripId">
+                                                    {{data.tripId}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row" *ngIf="showhideDriverDropdown">
+                                        <mat-form-field appearance="outline">
+                                            <mat-select placeholder="Driver Name.." formControlName="deviceId"  (selectionChange)="openDropdownDriver($event.value)">
+                                                <mat-option *ngFor="let data of driversId" [value]="data.driverId">
+                                                    {{data.userName}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row" *ngIf="showhideVehicleDropdown">
+                                        <mat-form-field appearance="outline">
+                                            <mat-select placeholder="Vehicle Name.." formControlName="vehicleId"  (selectionChange)="openDropdownVehicle($event.value)">
+                                                <mat-option *ngFor="let data of vehiclesId" [value]="data.vehicleId">
+                                                    {{data.vehicleName}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn sub-btn mr-2" type="submit" (click)="SaveAndClose()">Save & Close</button>
+                                            <button class="btn btn1 sub-btn mr-2" *ngIf="!this.data" type="submit" (click)="SaveAndNew()">Save & New</button>
+                                            <button class="btn btn2 sub-btn" type="submit"(click)="back()">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

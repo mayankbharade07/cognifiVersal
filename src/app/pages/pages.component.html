@@ -1,0 +1,438 @@
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-between">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <mat-card class="p-3">
+          <div class="page-head">
+            <div class="body">
+              <div class="row justify-content-between">
+                <div class="col-sm-12 col-xs-11 p-0 mx-4">
+                  <p class=" form-head">Recent Trips</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!----------------------First Card------------------------------>
+          <div class="row">
+            <owl-carousel-o [options]="customOptions" *ngIf="lengthMore">
+              <ng-container *ngFor="let data of filterdatafortoday">
+                <ng-template carouselSlide>
+                  <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 l-card">
+                    <mat-card class="card c-bdr m-2 mb-2">
+                      <div class="card-body">
+                        <div class="row mt-2">
+                          <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                            <span style="text-align:center;"><img src="../../assets/images/Rectangle 27.png"
+                                alt=""></span>
+                          </div>
+                          <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 mt-3">
+                            <span *ngIf="!data.driverFirstName"> --- </span>
+                            <span style="text-align:left;"><b>{{data.driverFirstName}}
+                                {{data.driverLastName}}</b></span>
+                          </div>
+                        </div>
+                        <div class="row mt-5">
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <span style="text-align:left;">
+                              <p style="font-size:14px ;color: #767676;line-height: 10px;">Licence No.</p>
+                            </span>
+                          </div>
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <span style="text-align:right;"><b>
+                                <p
+                                  style="font-size:14px; font-weight: 500;float: right;color: #000000;line-height: 10px;">
+                                  123456Ap C</p>
+                              </b></span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
+                            <span style="text-align:left;">
+                              <p style="font-size:14px ;color: #767676;line-height: 18px;">Mobile No.</p>
+                            </span>
+                          </div>
+                          <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12">
+                            <span style="text-align:right;"><b>
+                                <p
+                                  style="font-size:14px; font-weight: 500;float: right;color: #000000;line-height: 15px;">
+                                  +91-1234567890</p>
+                              </b></span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <span style="text-align:left;">
+                              <p style="font-size:14px ;color: #767676; line-height: 15px;">Trip Status</p>
+                            </span>
+                          </div>
+
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" style="text-align:right; ">
+                            <span *ngIf="data.status == 'Completed'" style="background: rgba(150, 255, 160, 0.3);border-radius: 7px;
+                                  color: #3BBB57;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                            <span *ngIf="data.status == 'Not Started'" style="background: rgba(255, 234, 192, 0.3);border-radius: 7px;
+                                  color: #ffaa2b;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                            <span *ngIf="data.status == 'In Progress'" style="background: rgba(181, 222, 255, 0.3);border-radius: 7px;
+                                  color: #2196F3;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                            <span *ngIf="data.status == 'Cancelled'" style="background: rgba(255, 175, 175, 0.3);border-radius: 7px;
+                                  color: #DC2127;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="pt-2  m-0"
+                              style="background: #E7F4FF;border-radius: 7px;padding: 0px 5px 1px 10px;">
+                              <p style="font-size:10px;text-align: center; font-weight:700;padding: 6px 0px 0px 0px;
+                            line-height: 12px;color: #414141;
+                          ">Trip Start(Date & Time)</p>
+                              <p style="font-size:12px;text-align: center; font-weight:700;line-height: 12px;padding: 0px 0px 6px 0px;
+      
+                          ">{{data.onwardStartTime}}</p>
+                            </div>
+                          </div>
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="pt-2 m-0" style="background: #E7F4FF;border-radius: 7px;padding: 0px 5px 1px 10px;
+                          ">
+                              <p style="font-size:10px;text-align: center; font-weight:700;padding:  6px 0px 0px 0px;
+                            line-height: 12px;color: #414141;
+                          ">Trip End(Date & Time)</p>
+                              <p *ngIf="data.expectedEndTime"
+                                style="font-size:12px;text-align: center; font-weight:700;line-height: 12px;padding: 0px 0px 6px 0px;">
+                                {{data.onwardEndTime}}</p>
+                              <p *ngIf="!data.expectedEndTime" style="font-size:16px;text-align: center; font-weight:600;
+                                line-height: 13px;padding: 0px 0px 6px 0px;">---</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <b class="mt-4">Location</b>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+                            <span class="material-icons m-0 p-0" style="color: #34C654;
+                              ">circle</span>
+                            <hr class="location-line">
+                          </div>
+                          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 p-0 m-0">
+                            <span class="material-icons" style="color: #EF3131;">circle</span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <p style="font-size:12px; font-weight:700;margin-bottom: 0;line-height: 12px;
+      
+                            ">Pune (Maharastra)</p>
+                            <p style="font-size: 12px;">Pune H.O, Pune</p>
+                          </div>
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" style="text-align: right;">
+                            <p style="font-size:12px; font-weight:700; margin-bottom: 0;line-height: 12px;
+      
+                            ">Mumbai (Maharastra)</p>
+                            <p style="font-size: 12px;  text-align:left; margin-left:14%;">Andheri H.O</p>
+                          </div>
+                        </div>
+                        <div class="row pb-3 px-2 py-2">
+                          <button class="btn mt-2" (click)="viewCustomer(data)">Details</button>
+                        </div>
+                      </div>
+                    </mat-card>
+                  </div>
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+            <!----------------------condition- Card----------------------------->
+            <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12" *ngIf="!lengthMore">
+              <mat-card class="card c-bdr m-3 mb-5" *ngFor="let data of filterdatafortoday">
+                <div class="card-body">
+                  <div class="row mt-2">
+                    <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12">
+                      <span style="text-align:center;"><img src="../../assets/images/Rectangle 27.png" alt=""></span>
+                    </div>
+                    <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 mt-3">
+                      <span *ngIf="!data.driverFirstName"> --- </span>
+                      <span style="text-align:left;"><b>{{data.driverFirstName}} {{data.driverLastName}}</b></span>
+                    </div>
+                  </div>
+                  <div class="row mt-5">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <span style="text-align:left;">
+                        <p style="font-size:14px ;color: #767676;line-height: 10px;">Licence No.</p>
+                      </span>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <span style="text-align:right;"><b>
+                          <p style="font-size:14px; font-weight: 500;float: right;color: #000000;line-height: 10px;">
+                            123456Ap C</p>
+                        </b></span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <span style="text-align:left;">
+                        <p style="font-size:14px;color: #767676;line-height: 18px;">Mobile No.</p>
+                      </span>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <span style="text-align:right;"><b>
+                          <p style="font-size:14px; font-weight: 500;float: right;color: #000000;line-height: 15px;">
+                            +91-1234567890</p>
+                        </b>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <span style="text-align:left;">
+                        <p style="font-size:14px ;color: #767676; line-height: 15px;">Trip Status</p>
+                      </span>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" style="text-align:right; ">
+                      <span *ngIf="data.status == 'Completed'" style="background: rgba(150, 255, 160, 0.3);border-radius: 7px;
+                            color: #3BBB57;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                      <span *ngIf="data.status == 'Not Started'" style="background: rgba(255, 234, 192, 0.3);border-radius: 7px;
+                            color: #ffaa2b;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                      <span *ngIf="data.status == 'In Progress'" style="background: rgba(181, 222, 255, 0.3);border-radius: 7px;
+                            color: #2196F3;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                      <span *ngIf="data.status == 'Cancelled'" style="background: rgba(255, 175, 175, 0.3);border-radius: 7px;
+                            color: #DC2127;padding: 4px 7px;width: fit-content;">{{data.status}}</span>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <div class="pt-2  m-0" style="background: #E7F4FF;border-radius: 7px;padding: 0px 5px 1px 10px;">
+                        <p style="font-size:10px;text-align: center; font-weight:700;padding: 6px 0px 0px 0px;
+                      line-height: 12px;color: #414141;
+                    ">Trip Start(Date & Time)</p>
+                        <p style="font-size:13px;text-align: center; font-weight:700;line-height: 12px;padding: 0px 0px 6px 0px;
+
+                    ">{{data.onwardStartTime}}</p>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <div class="pt-2 m-0" style="background: #E7F4FF;border-radius: 7px;padding: 0px 5px 1px 10px;
+                    ">
+                        <p style="font-size:10px;text-align: center; font-weight:700;padding:  6px 0px 0px 0px;
+                      line-height: 12px;color: #414141;
+                    ">Trip End(Date & Time)</p>
+                        <p *ngIf="data.expectedEndTime"
+                          style="font-size:13px;text-align: center; font-weight:700;line-height: 12px;padding: 0px 0px 6px 0px;">
+                          {{data.onwardEndTime}}</p>
+                        <p *ngIf="!data.expectedEndTime" style="font-size:16px;text-align: center; font-weight:600;
+                          line-height: 14px;padding: 0px 0px 6px 0px;">---</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <b class="mt-4">Location</b>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+                      <span class="material-icons m-0 p-0" style="color: #34C654;
+                        ">circle</span>
+                      <hr class="location-line">
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 p-0 m-0">
+                      <span class="material-icons" style="color: #EF3131;">circle</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      <p style="font-size:12px; font-weight:700;margin-bottom: 0;line-height: 12px;
+
+                      ">Pune (Maharastra)</p>
+                      <p style="font-size: 12px;">Pune H.O, Pune</p>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" style="text-align: right;">
+                      <p style="font-size:12px; font-weight:700; margin-bottom: 0;line-height: 12px;
+
+                      ">Mumbai (Maharastra)</p>
+                      <p style="font-size: 12px;  text-align:left; margin-left:14%;">Andheri H.O</p>
+                    </div>
+                  </div>
+                  <div class="row pb-3 px-2 py-2">
+                    <button class="btn mt-2" (click)="viewCustomer(data)">Details</button>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card>
+        <div class="page-head">
+          <div class="body">
+            <div class="row justify-content-between">
+              <div class="col-sm-12 p-0">
+                <p class="mb-0 form-head" id="head-table">Trip Listing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0">
+          <div class="col-lg-12- col-md-12 col-sm-12 col-xs-12 p-0">
+            <div class="card p-4">
+              <div class="row justify-content-between">
+                <div class="col-sm-6 mx-0 p-0">
+                  <mat-form-field style="width: 26%;">
+                    <input matInput placeholder="Search" (keyup)="applyFilter($event)" #input>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-6 mx-0 p-0">
+                  <span class="badge badge-secondary btn-s ml-4">
+                    <i class="fa fa-print" aria-hidden="true" style="color:black;"></i>
+                  </span>
+                  <span class="badge badge-secondary btn-s ml-4">
+                    <i class="fa fa-cloud-download" aria-hidden="true" style="color:black;"></i>
+                  </span>
+                  <span class="badge badge-secondary btn-s ml-4">
+                    <i class="fa fa-cog" aria-hidden="true" style="color:black;"></i>
+                  </span>
+                </div>
+
+              </div>
+
+              <div class="table-responsive p-3">
+                <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+                  class="mat-elevation-z8">
+
+                  <!-- Trip ID And Name Column -->
+                  <ng-container matColumnDef="tripId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                      sortActionDescription="Sort by number">
+                      Trip ID And Name
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tripId}} </td>
+                  </ng-container>
+
+                  <!-- Vehicle Name Column -->
+                  <ng-container matColumnDef="VehicleType">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                      sortActionDescription="Sort by name">
+                      Vehicle Name
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="!element.vehicleName">---</span>{{element.vehicleName}}
+                    </td>
+                  </ng-container>
+
+                  <!-- Vehicle Name Column -->
+                  <ng-container matColumnDef="DriverName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                      sortActionDescription="Sort by weight">
+                      Driver Name
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.driverFirstName + element.driverLastName}} </td>
+                  </ng-container>
+
+                  <!-- Trip Status Column-->
+                  <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                      sortActionDescription="Sort by symbol">
+                      Status
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="element.status == 'Completed'" style="background: rgba(150, 255, 160, 0.3);border-radius: 7px;
+                            color: #3BBB57;padding: 2px 7px;width: fit-content;">{{element.status}}</span>
+                      <span *ngIf="element.status == 'Not Started'" style="background: rgba(255, 234, 192, 0.3);border-radius: 7px;
+                            color: #ffaa2b;padding: 2px 7px;width: fit-content;">{{element.status}}</span>
+                      <span *ngIf="element.status == 'In Progress'" style="background: rgba(181, 222, 255, 0.3);border-radius: 7px;
+                            color: #2196F3;padding: 2px 7px;width: fit-content;">{{element.status}}</span>
+                      <span *ngIf="element.status == 'Cancelled'" style="background: rgba(255, 175, 175, 0.3);border-radius: 7px;
+                            color: #DC2127;padding: 2px 7px;width: fit-content;">{{element.status}}</span>
+                    </td>
+                  </ng-container>
+
+                  <!-- Trip    Column-->
+                  <ng-container matColumnDef="Category">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                      sortActionDescription="Sort by symbol">
+                      Category
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+                  </ng-container>
+
+                  <!-- Planned Columns -->
+                  <ng-container matColumnDef="onword">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="2"
+                      sortActionDescription="Sort by symbol">
+                      Planned (Onward)
+                    </th>
+                  </ng-container>
+
+                  <ng-container matColumnDef="startDTonword">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                      Start Date | Time
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.onwardStartTime}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="endDTonword">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                      End Date | Time
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.onwardEndTime}} </td>
+                  </ng-container>
+
+                  <!-- Actual Columns -->
+                  <ng-container matColumnDef="actual">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="2"
+                      sortActionDescription="Sort by symbol">
+                      Actual (Onward)
+                    </th>
+                  </ng-container>
+
+                  <ng-container matColumnDef="startDTactual">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                      Start Date | Time
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="!element.onwardActualStartTime">---</span>{{element.onwardActualStartTime}}
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="endDTactual">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                      End Date | Time
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      <span *ngIf="!element.onwardActualEndTime">---</span>{{element.onwardActualEndTime}}
+                    </td>
+                  </ng-container>
+
+
+                  <!-- Trip Type Column-->
+                  <ng-container matColumnDef="perfomance">
+                    <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2" sortActionDescription="Sort by symbol">
+                      Action
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+
+                      <!-- <span class="badge badge-secondary btn-s ml-4">
+                        <i class="fa fa-edit"></i>
+                      </span> -->
+                      <span class="badge badge-secondary btn-s ml-4" (click)="viewCustomer(element)">
+                        <i class="fa fa-eye" style="color: #3F51B5;">
+                        </i>
+                      </span>
+                    </td>
+                  </ng-container>
+                  <tr mat-header-row
+                    *matHeaderRowDef="['tripId','VehicleType','DriverName','Status','Category','onword', 'actual','perfomance']">
+                  </tr>
+                  <tr mat-header-row
+                    *matHeaderRowDef="['startDTonword', 'endDTonword', 'startDTactual', 'endDTactual']"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="float: left;"
+                  aria-label="Select page of periodic elements">
+                </mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ngx-spinner>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

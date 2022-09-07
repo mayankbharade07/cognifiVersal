@@ -1,0 +1,403 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <p>Trip Listing > <span style="color: #2196F3;">Trip Details</span></p>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-122">
+                <div class="row mx-0 my-5">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 p-0">
+                        <div class="card c-mr">
+                            <b id="driver">Driver Information</b>
+                            <div class=" p-4">
+                                <div class="row jutify-content-between ">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 p-0">
+                                        <div class="row m-0">
+                                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12">
+                                                <img src="../../../../assets/images/Rectangle 27.png" alt="">
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                                <p id="name" *ngIf="!trip_data.driverFirstName"> --- </p>
+                                                <p id="name" *ngIf="trip_data.driverFirstName">{{trip_data.driverFirstName}} {{trip_data.driverLastName}}</p>
+                                            </div>
+                                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+                                                <span class="id">ID : #{{trip_data.tripId}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row jutify-content-between mt-4">
+                                    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+                                        <span class="driver-span">Licence Number</span>
+                                        <p class="driver-para">{{tripdatabyid.licensePlate}}</p>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+                                        <span class="driver-span">Driver Number</span>
+                                        <p class="driver-para">+91 1234567890</p>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12" style="float:right">
+                                        <span class="driver-span1">Vehicle Insurance Expiry</span>
+                                        <span class="driver-para1 mt-1">{{tripdatabyid.insurances[0].insuranceExpiryDate | date}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-0 p-0">
+                                    <div class="p-0 m-0">
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                            <div class="pt-3"
+                                                style="background: #E7F4FF;border-radius: 7px;padding: 0px 0px 1px 10px;">
+                                                <p style="font-size:12px;text-align: center; font-weight:500;padding: 6px 0px 0px 0px;
+                                    line-height: 12px;color: #414141;
+                                  ">Trip Start(Date & Time)</p>
+                                                <p style="font-size:14px;text-align: center; font-weight:600;line-height: 12px;padding: 0px 0px 6px 0px;
+              
+                                  ">{{trip_data.onwardStartTime}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12" style="float:right;">
+                                            <div class="pt-3" style="background: #E7F4FF;border-radius: 7px;padding: 0px 0px 1px 10px;
+                                  ">
+                                                <p style="font-size:12px;text-align: center; font-weight:500;padding:  6px 0px 0px 0px;
+                                    line-height: 12px;color: #414141;
+                                  ">Trip End(Date & Time)</p>
+                                                <p style="font-size:14px;text-align: center; font-weight:600;line-height: 12px;padding: 0px 0px 6px 0px;
+              
+                                  ">{{trip_data.onwardEndTime}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-3">
+                                    <b>Base Location</b>
+                                    <div class="row p-0 mt-3">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 m-0 p-0">
+                                            <span class="material-icons" style="color: #34C654;">circle</span>
+                                            <span id="points">Start Point</span>
+                                            <hr class="location-line">
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 m-0 p-0">
+                                            <span class="material-icons" style="color: #EF3131;">circle</span>
+                                            <span id="points">End Point</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <p style="font-size: 12px;color: #8C8C8C;margin-left:12%; line-height:20px;">
+                                            {{tripdatabyid.startLocation}}</p>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <p style="font-size: 12px;color: #8C8C8C;margin-left: 12.5%; line-height:20px;">
+                                            {{tripdatabyid.endLocation}}</p>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                        <button mat-button class="btn1" (click)="AddBaseDialog()">Add Base
+                                            Location</button>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                        <!-- <a href="./pages/Location-details" class="location-detail">Location Details</a> -->
+                                        <button mat-button class="location-detail"
+                                            routerLink="/pages/Location-details">Location Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 mt-1">
+                        <div>
+                            <iframe class="map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.3747375871835!2d75.90937681496287!3d22.751470285091056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39631d5891adfb65%3A0xea28a34c2ba3a5ab!2sMoreYeahs%20Inc!5e0!3m2!1sen!2sin!4v1658699570786!5m2!1sen!2sin"
+                                width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-5 mt-5">
+                    <!-- Mayank Privious code start -->
+                    <div *ngIf="!drivertripdata" class="notFound"><p>No Records Found</p></div>
+                    <div class="table-responsive p-3" *ngIf="drivertripdata">
+                        
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                            <!-- Trip ID And Name Column -->
+                            <ng-container matColumnDef="tripId">
+                                <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2"
+                                    sortActionDescription="Sort by number">
+                                    Trip ID And Name
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.tripId}} </td>
+                            </ng-container>
+                            <!-- Vehicle Type Column -->
+                            <ng-container matColumnDef="VehicleType">
+                                <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2"
+                                    sortActionDescription="Sort by name">
+                                    Vehicle Type
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="!element.vehicleType">---</span>
+                                    <span>{{element.vehicleType}}</span>
+                                </td>
+                            </ng-container>
+                            <!-- Vehicle Number Column -->
+                            <ng-container matColumnDef="VehicleNumber">
+                                <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2"
+                                    sortActionDescription="Sort by name">
+                                    Vehicle Number
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="!element.vehicleRegistrationNumber">---</span>
+                                    <span>{{element.vehicleRegistrationNumber}}</span>
+                                </td>
+                            </ng-container>
+                            <!-- Vehicle Name Column -->
+                            <ng-container matColumnDef="DriverName">
+                                <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2"
+                                    sortActionDescription="Sort by weight">
+                                    Trip Type
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="!element.tripType"></span>
+                                    <span> {{element.tripType}}</span>
+                                </td>
+                            </ng-container>
+                            <!-- Planned Onword Columns -->
+                            <ng-container matColumnDef="ponword">
+                                <th mat-header-cell *matHeaderCellDef [attr.colspan]="2"
+                                    sortActionDescription="Sort by symbol">
+                                    Planned (Onward)
+                                </th>
+                            </ng-container>
+                            <ng-container matColumnDef="startDTponword">
+                                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                    Start Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.plannedTripStartDate}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="endDTponword">
+                                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                    End Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.plannedTripEndDate}} </td>
+                            </ng-container>
+                             <!-- Planned Returns Columns -->
+                             <ng-container matColumnDef="plannedreturn">
+                                <th mat-header-cell *matHeaderCellDef [attr.colspan]="2"
+                                    sortActionDescription="Sort by symbol">
+                                    Planned (Return)
+                                </th>
+                            </ng-container>
+                            <ng-container matColumnDef="startDTpreturn">
+                                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                    Start Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.plannedTripStartTime}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="endDTpreturn">
+                                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                    End Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.plannedTripEndTime}} </td>
+                            </ng-container>
+                            <!-- Actual Onword Columns -->
+                            <ng-container matColumnDef="actualonword">
+                                <th mat-header-cell *matHeaderCellDef [attr.colspan]="2"
+                                    sortActionDescription="Sort by symbol">
+                                    Actual (Onward)
+                                </th>
+                            </ng-container>
+                            <ng-container matColumnDef="startDTactual">
+                                <th mat-header-cell *matHeaderCellDef>
+                                    Start Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="!element.actualTripStartDate">---</span>{{element.actualTripStartDate}}
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="endDTactual">
+                                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                    End Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="!element.actualTripEndDate">---</span>{{element.actualTripEndDate}}
+                                </td>
+                            </ng-container>                            
+                            <!-- Actual Returns Columns -->
+                            <ng-container matColumnDef="actualreturn">
+                                <th mat-header-cell *matHeaderCellDef [attr.colspan]="2"
+                                    sortActionDescription="Sort by symbol">
+                                    Actual (Return)
+                                </th>
+                            </ng-container>
+                            <ng-container matColumnDef="startDTactualreturn">
+                                <th mat-header-cell *matHeaderCellDef>
+                                    Start Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="!element.actualTripStartDate">---</span>{{element.actualTripStartTime}}
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="endDTactualreturn">
+                                <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                    End Date | Time
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span *ngIf="!element.actualTripEndDate">---</span>{{element.actualTripEndTime}}
+                                </td>
+                            </ng-container>
+                            <!-- Trip Type Column-->
+                            <ng-container matColumnDef="perfomance">
+                                <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2"
+                                    sortActionDescription="Sort by symbol">
+                                    Performance
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <span style="color:#2196F3;">on time</span>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row
+                                *matHeaderRowDef="['tripId','VehicleType','VehicleNumber','DriverName','ponword','plannedreturn', 'actualonword',
+                                'actualreturn','perfomance']">
+                            </tr>
+                            <tr mat-header-row
+                                *matHeaderRowDef="['startDTponword', 'endDTponword','startDTpreturn','endDTpreturn', 'startDTactual', 'endDTactual',
+                                'startDTactualreturn', 'endDTactualreturn']">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                    <!-- Mayank Privious code close -->
+                    <!-- Driver Information -->
+                    <div class="mt-4" style="border: 1px solid #F0F0F0;">
+                        <div class="row m-0 p-0">
+                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 p-0 m-0">
+                                <div class="row m-0 p-0" style="border-right: 1px solid #F0F0F0;">
+                                    <!-- Other Information -->
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mt-3"
+                                        style="border-right: 1px solid #F0F0F0;margin-bottom: 4%;">
+                                        <div class="row justify-content-between">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <p class="block-head">Other Information</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                                                <p class="block-para m-0">Travel Time</p>
+                                                <span style="background: #D8DEFF;
+                                                border-radius: 5px;padding: 3px 10px;">19 hours</span>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                                                <p class="block-para m-0">Travel Distance</p>
+                                                <span style="background: #D8DEFF;
+                                                border-radius: 5px;padding: 3px 10px;">350 km</span>
+                                            </div>
+                                       
+                                        
+                                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                                                <p class="block-para m-0">Top Speed</p>
+                                                <span style="background: #D8DEFF;
+                                                border-radius: 5px;padding: 3px 10px;">120 km/h</span>
+                                            </div>
+                                            <div class="ol-xl-3 col-lg-3 col-md-12 col-sm-12">
+                                                <p class="block-para m-0">Average Speed</p>
+                                                <span style="background: #D8DEFF;
+                                                border-radius: 5px;padding: 3px 10px;">80 km/h</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- Pessenger Information -->
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="row justify-content-between mt-3">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <p class="block-head">Pessenger Information
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-between ">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                                <span class="name"><i class="fa fa-user"
+                                                        aria-hidden="true"></i>Name</span>
+                                                        <p id="user" *ngIf="!customerdata.name">---</p>
+                                                        <p id="user">{{customerdata.name}}</p>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                                <span class="name"><i class="fa fa-envelope"
+                                                        aria-hidden="true"></i>Email Address</span>
+                                                        <p id="user" *ngIf="!customerdata.email">---</p>
+                                                        <p id="user">{{customerdata.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-between ">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                                <span class="name"><i class="fa fa-phone"
+                                                        aria-hidden="true"></i>Phone</span>
+                                                        <p id="user" *ngIf="!customerdata.phone">---</p>
+                                                        <p id="user">{{customerdata.phone}}</p>
+                                            </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                            <span class="name"><i class="fa fa-map-marker"
+                                                    aria-hidden="true"></i>Address</span>
+                                                    <p id="user" *ngIf="!customerdata.address">---</p>
+                                                    <p id="user">{{customerdata.address}}</p>
+                                         </div>
+                                        </div>
+                                        <div class="row justify-content-between">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                            <button mat-button class="btn2" (click)="openDialog(customerdata)">Edit
+                                                Details</button>
+                                        </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 p-0 m-0">
+                                <!-- Trip Expense -->
+                                <div class="P-5">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-0 p-3" style="border-right: 1px solid #0F0F0F0F;">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 tripexpense p-0">
+                                            <p class="block-head1">Trip Expense</p>
+                                        <div class="row justify-content-between m-0">
+                                            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                <p>Advance Amount</p>
+                                            </div>
+                                            <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12">
+                                                <p><i class="fa fa-inr"></i> <span id="amount">1500</span></p>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                <p style="text-align: center;">Bata Amount</p>
+                                            </div>
+                                            <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12">
+                                                <p><i class="fa fa-inr"></i> <span id="amount">2000</span></p>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                    </div>
+                                        <!--  -->
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 tripexpense m-0  mt-2 p-0">
+                                        <p class="block-head1">Trip Income</p>
+                                        <div class="row justify-content-start">
+                                            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 p-0">
+                                                <p style="text-align: left;">Amount By Customer</p>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                                <p><i class="fa fa-inr"></i> <span id="amount">1500</span></p>
+                                            </div>
+                                        </div>
+                                    
+                                     </div>
+                                     <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 m-0 p-0 mt-2">
+                                        <div>
+                                            <button mat-button class="btn1" routerLink="/pages/Manage-Expenses">Manage
+                                                Expense</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                     <!--  -->          
+                                    <!-- Mandatory Checks -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,68 @@
+.form-field {
+    // border: 1px solid rgb(181 173 173 / 42%);
+    padding: 13px 10px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 3px;
+}
+#label {
+    color: black;
+    font-weight: 700;
+}
+.line {
+    border-bottom: 1px solid silver;
+}
+.form-field-input{
+    border: 1px solid #c0c0c085;
+    border-radius: 3px;
+}
+.myclass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #DCDCDC;
+  margin-right: 2%;
+  }
+  @media (min-width:1024px) {
+    #expense-form{
+      width: 33%;
+    }
+  }
+  .mandatory{
+    color: red;
+    margin-left: 5px;
+    margin-bottom: 10px;
+  }
+  .p-head {
+    width: 224px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+  }
+  #upload {
+    color: #3F51B5;
+    font-size: 30px;
+  }
+
+  .sub-btn {
+    margin-right: 10px;
+  }
+  .button {
+    float: right;
+  }
+  .btn1{
+    background: #E6E9FD;
+    color: #3F51B5 !important;
+  }
+  .btn2{
+    background: #FFFFFF !important;
+    color: #3F51B5 !important;
+    border: 1px solid #3F51B5;
+    border-radius: 5px;
+  }
+  
+  

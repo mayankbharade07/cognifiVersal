@@ -1,0 +1,129 @@
+.block {
+    margin-bottom: 22px;
+    border: 1px solid #F1F1F1;
+    padding: 10px 15px 10px 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 58px rgba(0, 0, 0, 0.05);
+}
+
+.block-p {
+    color: #3F51B5;
+}
+
+.block-head {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+#vehicle {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4px 6px;
+    gap: 10px;
+    background: #EFEFEF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    
+      font-family: 'Poppins';
+  font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+
+
+
+color: #000000;
+
+}
+
+#vehicle span {
+    font-weight: 500;
+}
+
+#selection {
+    border: 1px solid #3F51B5;
+    border-radius: 5px;
+}
+
+.button {
+    width: fit-content;
+    margin: 0% 4%;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+    color: #3F51B5
+}
+
+.button-1 {
+    margin: 2%;
+    background: #FFFFFF;
+    border: 1px solid #3F51B5;
+    border-radius: 5px;
+    color: #3F51B5;
+    padding: 0.6%;
+}
+
+.vehicle {
+    border-right: 1px solid rgb(163, 162, 156);
+}
+
+.mat-select {
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4px 6px;
+    grid-gap: 10px;
+    gap: 10px;
+    border-radius: 5px;
+    border: 1px solid #3F51B5;
+    border-radius: 5px;
+}
+
+#selection {
+    background: #F9F9F9;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+}
+
+thead {
+    background: #F9F9F9;
+}
+
+table {
+    border: none;
+}
+
+.range-box {
+    background: #F9F9F9;
+    padding: 10px 2px;
+    margin: 0;
+}
+
+#range-box-input {
+    background: #eaeaea00;
+    border: 0px solid #DDDDDD;
+}
+
+.btn1 {
+    background: #3F51B5;
+    color: #E6E9FD;
+    width: 100px !important;
+    min-width: unset !important;
+}
+.btn2{
+    color: #3F51B5 !important;
+    border: 1px solid #3F51B5;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 7px 20px;
+    background-color: #FFFFFF;
+}
+
+.badge{
+    background: #3f51b500;
+    color: #3F51B5;
+    font-size: 17px;
+    float: right;
+}

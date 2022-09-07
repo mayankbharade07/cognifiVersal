@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
+@use "~@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -9,31 +8,145 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$itac_ui-primary: mat.define-palette(mat.$indigo-palette);
-$itac_ui-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$itac-frontend-primary: mat.define-palette(mat.$indigo-palette);
+$itac-frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$itac_ui-warn: mat.define-palette(mat.$red-palette);
+$itac-frontend-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$itac_ui-theme: mat.define-light-theme((
-  color: (
-    primary: $itac_ui-primary,
-    accent: $itac_ui-accent,
-    warn: $itac_ui-warn,
+$itac-frontend-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $itac-frontend-primary,
+      accent: $itac-frontend-accent,
+      warn: $itac-frontend-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($itac_ui-theme);
+@include mat.all-component-themes($itac-frontend-theme);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~bootstrap/dist/css/bootstrap.css"; 
+@import "~font-awesome/css/font-awesome.css"; 
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+html {
+  height: 100%;
+}
+body {
+  margin: 0px;
+  height: 100vh;
+  font-family: 'Poppins' !important;
+
+}
+.top-toolbar {
+  height: 6vh !important;
+}
+
+.material-icons {
+  font-size: 17px !important;
+}
+
+.v-align {
+  vertical-align: middle;
+}
+
+.img-s {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.form-head {
+  padding: 0px 0px 0px 11px;
+
+font-family: 'Poppins' !important;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+}
+
+.card {
+  position: relative;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0px solid rgba(0,0,0,.125) !important;
+  border-radius: 8px !important;
+  box-shadow: 0px 0px 58px rgba(0, 0, 0, 0.05) !important;
+
+}
+
+.page-head{
+  // margin: 0px 10px;
+  padding: 7px 0;
+}
+
+.btn {
+  font-size: 14px;
+  padding: 7px 20px;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: white !important;
+
+
+background: #3F51B5;
+border-radius: 5px;
+}
+
+.btn:hover {
+  color: white !important;
+}
+
+.upload-btn{
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+
+}
+
+.btn2{
+  font-size: 14px;
+    padding: 7px 18px;
+    border: 1px solid #3F51B5;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+    color: #3F51B5;
+    /* background: #3F51B5; */
+    border-radius: 5px;
+}
+
+// .body {
+//   background-color:#dce1e9b5;
+// }
+
+p {
+  font-family: 'Poppins';
+  font-style: normal;
+  line-height: 30px;
+
+}

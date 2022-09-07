@@ -1,0 +1,30 @@
+<!-- Add Bulk-Upload Model</a> -->
+<div mat-dialog-content class="mt-3" [align]="'center'">
+    <p class="float-left" [align]="'left'">Upload and attach file</p>
+    <div  mat-dialog-content class="Responsive upload">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 myclass">
+            <div  class="upload-btn">
+                <!-- <input type="file" formControlName="imageUrl1"  onclick="this.value=null" (change)="csvInputChange($event)"   style="display: none;" name="file" id="file" accept=".xlsx" /> -->
+                <!-- <input type="file" formControlName="imageUrl1" (change)="uploadData($event)"
+                   style="display: none;" name="file" id="file" accept=".xlsx" /> -->
+                   <input type="file" (change)="uploadData($event)"
+                   style="display: none;" name="file" id="file" accept=".xlsx, .xls," />
+            <label for="file">
+                <i class="fa fa-upload" id="upload"></i>
+            </label>
+            <p class="click p-0 m-0 mb-2"><span class="uderline">Click to upload  </span> 
+                <span>or drag and </span>
+                   <span>drop</span> </p>
+                  <p> <span class="img-size">Maximum size : 200mb</span> </p>
+            </div>
+            <img   style="height: 90%; width:80%">
+        </div>
+   
+   </div>
+    <div  mat-dialog-action [align]="'center'">
+        <button mat-button class="btn btn1 mt-4 mb-2" (click)="uploadimportData()">Upload</button>
+    </div>
+</div>
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

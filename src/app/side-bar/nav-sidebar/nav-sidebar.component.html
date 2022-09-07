@@ -1,0 +1,97 @@
+<!-- 
+old -->
+
+<div [class.mat-elevation-z2]="false" [class.mat-elevation-z8]="true">
+  <mat-toolbar class="mat-elevation-z8 top-toolbar" color="primary">
+    <button mat-icon-button (click)="isExpanded = !isExpanded" aria-label="Main Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <header>
+    </header>
+    <span class="flex-expand"></span>
+    <!-- Theme select -->
+    <div class="mat-menu-content">
+      <button mat-icon-button [matMenuTriggerFor]="theme_menu" matTooltip="Select a theme" aria-label="Select a theme">
+        <span class="mat-button-wrapper">
+          <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true"
+            data-mat-icon-type="font">format_color_fill</mat-icon>
+        </span>
+      </button>
+      <mat-menu #theme_menu="matMenu">
+        <button mat-menu-item *ngFor="let element of themes">
+          <mat-radio-button [checked]="element.isChecked" (change)="setTheme(element.code)"> <span>{{ element.name
+              }}</span>
+          </mat-radio-button>
+        </button>
+      </mat-menu>
+    </div>
+    <!-- Language select -->
+
+    
+  
+ 
+  <!-- <button (click)="hideshow()"></button>
+  <div id="google_translate_element" ></div> -->
+
+    <button mat-icon-button [matMenuTriggerFor]="language_menu" matTooltip="Select a language"
+      aria-label="Select a language">
+      <span class="mat-button-wrapper">
+        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true"
+          data-mat-icon-type="font">translate</mat-icon>
+      </span>
+    </button>
+    
+    <mat-menu #language_menu="matMenu">
+      
+      <button mat-menu-item *ngFor="let element of languages">
+        <mat-radio-button name="optRadio" [checked]="element.isChecked" (change)="setLanguage(element.code)"> 
+          <span>{{
+            element.label }}</span>
+            
+        </mat-radio-button>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidebar-container" autosize>
+    <mat-sidenav #sidenav mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+      <span *ngFor="let item of sideNavMenu">
+        <mat-nav-list>
+          <mat-accordion>
+            <mat-expansion-panel class="mat-elevation-z0" #panel *ngIf="!item.mainMenu.subMenu" hideToggle="true"
+              (opened)="panel.close()">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="full-width" *ngIf="(isExpanded || isShowing) " [routerLink]="[item.mainMenu.route]"
+                    routerLinkActive="list-item-active">{{item.mainMenu.translationKey|translate}}</span>
+                  <mat-icon class="mr-rt">{{item.mainMenu.icon}}</mat-icon>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="mat-elevation-z0" *ngIf="item.mainMenu.subMenu">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="full-width"
+                    *ngIf="isExpanded || isShowing">{{item.mainMenu.translationKey|translate}}</span>
+                  <mat-icon mat-list-icon>{{item.mainMenu.icon}}</mat-icon>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div *ngIf="isShowing || isExpanded">
+                <mat-list-item *ngFor="let subItem of item.mainMenu.subMenu" [routerLink]="[subItem.route]"
+                  routerLinkActive="list-item-active">{{subItem.translationKey|translate}}
+                  <mat-icon class="mr-rt">{{item.mainMenu.subMenu.icon}}</mat-icon>
+                </mat-list-item>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-nav-list>
+  
+      </span>
+      <div class="footer"><img class="image v-align" src="assets/images/logo-itac.png"></div>
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="sidebar-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+

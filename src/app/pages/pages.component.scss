@@ -1,0 +1,228 @@
+@import "~@angular/material/theming";
+@import "../../sass/theme.scss";
+
+.mat-sidenav-container {
+  height: 91vh;
+  padding: 0px !important;
+}
+
+.mat-sidenav {
+  padding: 0px !important;
+  height: 100%;
+  width: auto;
+}
+
+.mat-sidenav-content {
+  padding: 20px;
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-expand {
+  flex: 1 1 auto;
+}
+
+::ng-deep .mat-menu-panel {
+  overflow-x: hidden !important;
+}
+
+.mat-nav-list .list-item-active {
+  font-weight: bold;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  margin-left: 17px;
+}
+
+.img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+
+}
+
+#head-table {
+  padding: 18px 0 !important;
+}
+
+.block {
+  border: 1px solid #E9E9E9;
+  padding: 4px 4px;
+}
+
+.btn{
+  width: -webkit-fill-available;
+
+}
+.badge{
+  background: #3f51b500;
+  color: #3F51B5;
+  font-size: 17px;
+  float: right;
+}
+
+.material-icons{
+ box-shadow: 0px 3px 4px rgb(0 0 0 / 14%);
+ border: 3px solid white;
+ border-radius: 50%;
+}
+.location-line{
+  margin-left: 12%;
+  display: flex;
+  margin-top: -6.5%;
+  width: 90%;
+  height: 3px;
+  background-image: linear-gradient(90deg, transparent , transparent 50%, #fff 50%, #fff 50%), linear-gradient(90deg, #34C654, #FFDA58, #DC2127,  );
+  background-size: 6px 3px, 100% 9px
+}
+
+.th-style {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 18px;
+text-align:justify;
+}
+table {
+  text-align: center;
+  width: 100%;
+  box-shadow: none !important;
+
+}
+
+:host ::ng-deep .mat-sort-header-container {
+  // display: flex;
+  justify-content: center;
+  
+}
+
+th.mat-header-cell {
+  text-align: center;
+  border: 1px solid #CCC;
+  padding: 0 !important;
+  background-color: #F3F3F3 !important;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+
+
+th.mat-sort-header-sorted {
+color: black;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 137.69%;
+text-align: justify;  
+}
+
+.status{
+  background: rgba(181, 222, 255, 0.3);
+  border-radius: 7px;
+  color: #2196F3 !important;
+  float: right;
+  font-weight: 500;
+  
+}
+.trip{
+  text-align: center;
+  background: #E7F4FF;
+  border-radius: 7px;
+
+}
+.date-time{
+  font-family: 'Nunito Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 14px;
+}
+@media (max-width:1440px) {
+  .location-line{
+    margin-left: 14%;
+    display: flex;
+    margin-top: -11.5%;
+    width: 89%;
+    height: 2px;
+    // background: linear-gradient(270.02deg, #DC2127 17.79%, #FFDA58 56.36%, #34C654 91.11%);
+    background-image: linear-gradient(90deg, transparent, transparent 50%, #fff 50%, #fff 100%), linear-gradient(90deg, #34C654, #FFDA58, #DC2127,  );
+    background-size: 6px 3px, 100% 3px;
+  }
+  
+}
+
+@media (max-width:1024px) {
+  .location-line{
+    margin-left: 24%;
+    display: flex;
+    margin-top: -17.5%;
+    width: 76%;
+    height: 2px;
+    // background: linear-gradient(270.02deg, #DC2127 17.79%, #FFDA58 56.36%, #34C654 91.11%);
+    background-image: linear-gradient(90deg, transparent, transparent 50%, #fff 50%, #fff 100%), linear-gradient(90deg, #34C654, #FFDA58, #DC2127,  );
+    background-size: 6px 3px, 100% 3px;
+  }
+
+  @media (max-width: 1440px){
+  #location-point {
+    flex: 0 0 auto;
+    width: 50.666667% !important;
+}
+  }
+  
+}
+.status{
+  background: rgba(181, 222, 255, 0.3);
+  border-radius: 7px;
+  color: #2196F3 !important;
+  float: right;
+  font-weight: 500;
+  
+}
+.trip{
+  text-align: center;
+  background: #E7F4FF;
+  border-radius: 7px;
+
+}
+.date-time{
+  font-family: 'Nunito Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 14px;
+}
+
+.mat-cell {
+  font-size: 14px;
+  font-family: 'Poppins' !important;
+}
+
+.c-bdr {
+  border: 1px solid #E9E9E9 !important;
+}
+
+.slick-slider {
+  background-color: #d8dadb00;
+  display: flex;
+}
+
+.l-card {
+  max-width: 100% !important; 
+  width: 100%;
+}
+
+.n-card {
+  max-width: 100% !important; 
+}

@@ -1,17 +1,28 @@
 {
-    "reports": {
-        "route-report": {
-            "table": {
-                "columnHeaders": {
-                    "SerialNo": "Numéro de série",
-                    "VehicleName": "Nom du véhicule",
-                    "From": "De",
-                    "To": "À"
-                },
-                "buttons": {
-                    "Excel": " Exceller"
-                }
-            }
-        }
+    "side-nav": {
+        "dashboard": "tableau de bord",
+        "bataAllowance" : "Allocation Bata",
+        "bataRulesList" : "Liste des règles Bata",
+        "customer" : "cliente(feminine)",
+        "account" : "Compte",
+        "income" : "Frais",
+        "expense" : "Revenu"
+    },
+    "dash-trip": {
+        "recenttrips": "Voyages récents",
+        "amanGupta" : "Aman Gupta",
+        "licenceNo" : "Numéro de licence",
+        "mobileNo" : "Mobile Non",
+        "tripStatus" :"État du voyage",
+        "completed" : "complété",
+        "tripStart(date & time)":"Début du voyage (date et heure)",
+        "tripEnd(date & time)":"Fin du voyage (date et heure)",
+        "location":"Emplacement",
+        "puneMaharastra":"Puné (Maharashtra)",
+        "mumbaiMaharastra":"Bombay (Maharashtra)",
+        "puneH.Opune":"Mettez H.O, Mettez",
+        "andheriH.O":"Andheri H.O",
+        "details":"Détails",
+        "tripListing":"Liste des voyages"
     }
 }

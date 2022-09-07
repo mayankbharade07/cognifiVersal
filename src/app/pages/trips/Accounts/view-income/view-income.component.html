@@ -1,0 +1,124 @@
+<section>
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="body">
+                    <div class="row justify-content-between">
+                        <div class="col-sm-12 p-0">
+                            <p>Accounts > Manage Income > <span style="color: #2196F3;">Income Details</span></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-sm-12 p-0">
+                            <p class="mb-0 form-head p-0">Income Details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card pb-5">
+                    <div class="row" *ngIf="incomeIdData">
+                        <div class="col-lg-5 col-md-5 col-sm-5">
+                            <div class="block">
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Income ID</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{incomeIdData.incomeId}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Date</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{incomeIdData.incomeDate | date}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Type</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{incomeIdData.incomeTypeName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Title</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">I was pay with my personal wallet</p>
+                                    </div>
+                                </div>
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Amount</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{incomeIdData.amount}} {{incomeIdData.currencyName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Trip ID & Name</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">Trip ID: {{incomeIdData.tripId}}
+                                            Geofence Test</p>
+                                    </div>
+                                </div>
+                                <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Income Added By</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data" *ngIf="!incomeIdData.orgName">Uday Sharma</p>
+                                        <p class="left-data">{{incomeIdData.orgName}}</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="row" id="details">
+                                    <div class="col-md-6 col-sm-6">
+                                        <mat-label class="label">Income Added Date</mat-label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <p class="left-data">{{incomeIdData.insertedOn | date}}</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div *ngIf="!incomeIdData.imageUrl1" class="block" style="text-align: center;">
+                                <span>Image Not Found</span>
+                            </div>
+                            <div class="block" *ngIf="incomeIdData.imageUrl1">
+                                <img src={{incomeIdData.imageUrl1}} alt="">
+                            </div>
+                            <div class="row" *ngIf="incomeIdData.imageUrl1">
+                                <div class="col-md-7 col-sm-7 m-0">
+                                    <span>File name</span>
+                                    <br>
+                                    <span style="font-weight: 600;">img2153215751-05-05-2022</span>
+                                </div>
+                                <div class="col-md-5 col-sm-5">
+
+                                    <a href={{incomeIdData.imageUrl1}} target="_self" download><button type="button"
+                                            class="btn add-btn">Download</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>

@@ -1,50 +1,112 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @include mat-core();
 
 // Typography
-$custom-typography: mat-typography-config(
-  $font-family: Raleway,
+$typography-configuration-1: mat-typography-config(
+  $font-family: Poppins,
   $headline: mat-typography-level(24px, 48px, 400),
-  $body-1: mat-typography-level(16px, 24px, 400)
+  $body-1: mat-typography-level(14px, 24px, 400),
 );
-@include angular-material-typography($custom-typography);
+$typography-configuration-2: mat-typography-config(
+  $font-family: 'Roboto, "Helvetica Neue", sans-serif',
+  // $display-4: mat-typography-level(18px, 28px, 300),
+  // $display-3: mat-typography-level(20px, 32px, 400),
+  // $display-2: mat-typography-level(22px, 36px, 400),
+  // $display-1: mat-typography-level(24px, 40px, 400),
+  $headline: mat-typography-level(24px, 48px, 400),
+  // $title: mat-typography-level(40px, 32px, 500),
+  // $subheading-2: mat-typography-level(26px, 28px, 400),
+  // $subheading-1: mat-typography-level(28px, 30px, 400),
+  // $body-2: mat-typography-level(10px, 22px, 400),
+  $body-1: mat-typography-level(12px, 24px, 400),
+  // $caption: mat-typography-level(20px, 24px, 400),
+  // $button: mat-typography-level(24px, 14px, 500),
+  // $input: mat-typography-level(24px, 1.125, 400),
+);
 
-// Default colors
-// $my-app-primary: mat-palette($mat-teal, 700, 100, 800);
-// $my-app-accent:  mat-palette($mat-teal, 700, 100, 800);
+// Light theme - Blue and indigo (Default)
+$blue-n-indigo-light-primary: mat-palette($mat-blue);
+$blue-n-indigo-light-accent: mat-palette($mat-indigo);
+$blue-n-indigo-light-warn: mat-palette($mat-red);
 
-// $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent);
-// @include angular-material-theme($my-app-theme);
+$blue-n-indigo-light-theme: mat-light-theme(
+  $blue-n-indigo-light-primary,
+  $blue-n-indigo-light-accent,
+  $blue-n-indigo-light-warn
+);
 
-//Default theme
-$default-primary: mat-palette($mat-teal);
-$default-accent:  mat-palette($mat-teal, A200, A100, A400);
-$default-warn:    mat-palette($mat-deep-purple);
-
-$default-theme:   mat-light-theme($default-primary,$default-accent, $default-warn);
-
-.default-theme {
-  @include angular-material-theme($default-theme);
+.blue-n-indigo-light-theme {
+  @include angular-material-theme($blue-n-indigo-light-theme);
+  @include mat-core($typography-configuration-1);
 }
 
-// Dark theme
-$dark-primary: mat-palette($mat-blue-grey);
-$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
-$dark-warn:    mat-palette($mat-deep-orange);
+// Light theme - Deep purple and Amber
+$deep-purple-n-amber-light-primary: mat-palette($mat-deep-purple);
+$deep-purple-n-amber-light-accent: mat-palette($mat-amber);
+$deep-purple-n-amber-light-warn: mat-palette($mat-red);
 
-$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$deep-purple-n-amber-light-theme: mat-light-theme(
+  $deep-purple-n-amber-light-primary,
+  $deep-purple-n-amber-light-accent,
+  $deep-purple-n-amber-light-warn
+);
 
-.dark-theme {
-  @include angular-material-theme($dark-theme);
+.deep-purple-n-amber-light-theme {
+  @include angular-material-theme($deep-purple-n-amber-light-theme);
+  @include mat-core($typography-configuration-1);
 }
 
-// Light theme
-$light-primary: mat-palette($mat-grey, 200, 500, 300);
-$light-accent: mat-palette($mat-brown, 200);
-$light-warn: mat-palette($mat-deep-orange, 200);
+// Dark theme - Pink and blue grey
+$pink-n-blue-grey-dark-primary: mat-palette($mat-pink);
+$pink-n-blue-grey-dark-accent: mat-palette($mat-blue-grey);
+$pink-n-blue-grey-dark-warn: mat-palette($mat-red);
 
-$light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
+$pink-n-blue-grey-dark-theme: mat-dark-theme(
+  $pink-n-blue-grey-dark-primary,
+  $pink-n-blue-grey-dark-accent,
+  $pink-n-blue-grey-dark-warn
+);
 
-.light-theme {
-  @include angular-material-theme($light-theme)
+.pink-n-blue-grey-dark-theme {
+  @include angular-material-theme($pink-n-blue-grey-dark-theme);
+  @include mat-core($typography-configuration-2);
+  .card {
+    // position: relative;
+    // word-wrap: break-word;
+    background-color: rgba(0,0,0,.125);
+    // background-clip: border-box;
+    // border: 0px solid rgba(0,0,0,.125) !important;
+    // border-radius: 8px !important;
+    // box-shadow: 0px 0px 58px rgba(0, 0, 0, 0.05) !important;
+  
+  }
+}
+
+// Light theme - Indigo and pink
+$indigo-n-pink-light-primary: mat-palette($mat-indigo);
+$indigo-n-pink-light-accent: mat-palette($mat-pink);
+$indigo-n-pink-light-warn: mat-palette($mat-red);
+
+$indigo-n-pink-light-theme: mat-light-theme(
+  $indigo-n-pink-light-primary,
+  $indigo-n-pink-light-accent,
+  $indigo-n-pink-light-warn
+);
+
+.indigo-n-pink-light-theme {
+  @include angular-material-theme($indigo-n-pink-light-theme);
+  @include mat-core($typography-configuration-1);
+}
+
+@mixin button-margin {
+  margin: 1px;
+}
+@mixin button-hover{
+  background-color: lightgrey;
+}
+.mat-mini-fab {
+  @include button-margin;
+}
+.mat-icon-button:hover{
+  @include button-hover;
 }

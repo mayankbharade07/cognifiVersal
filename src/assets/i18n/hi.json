@@ -1,17 +1,28 @@
 {
-    "reports": {
-        "route-report": {
-            "table": {
-                "columnHeaders": {
-                    "SerialNo": "क्रमांक",
-                    "VehicleName": "वाहन का नाम",
-                    "From": "से",
-                    "To": "प्रति"
-                },
-                "buttons": {
-                    "Excel": "एक्सेल"
-                }
-            }
-        }
+    "side-nav": {
+        "dashboard": "डैशबोर्ड",
+        "bataAllowance" : "बाटा भत्ता",
+        "bataRulesList" : "बाटा नियमों सूची",
+        "customer" : "ग्राहक",
+        "account" : "खाता",
+        "income" : "आय",
+        "expense" : "व्यय"
+    },
+    "dash-trip": {
+        "recenttrips": "हाल की यात्राएं",
+        "amanGupta" : "Aman Gupta",
+        "licenceNo" : "Numéro de licence",
+        "mobileNo" : "Mobile Non",
+        "tripStatus" :"État du voyage",
+        "completed" : "complété",
+        "tripStart(date & time)":"Début du voyage (date et heure)",
+        "tripEnd(date & time)":"Fin du voyage (date et heure)",
+        "location":"Emplacement",
+        "puneMaharastra":"Puné (Maharashtra)",
+        "mumbaiMaharastra":"Bombay (Maharashtra)",
+        "puneH.Opune":"Mettez H.O, Mettez",
+        "andheriH.O":"Andheri H.O",
+        "details":"Détails",
+        "tripListing":"Liste des voyages"
     }
 }

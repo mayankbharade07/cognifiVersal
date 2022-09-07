@@ -1,0 +1,73 @@
+.block {
+    margin-bottom: 22px;
+    border: 1px solid #F1F1F1;
+    padding: 10px 0px 10px 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 58px rgba(0, 0, 0, 0.05);
+}
+.block-p {
+    color: #3F51B5;
+    }
+.mat-select {
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4px 6px;
+    grid-gap: 10px;
+    gap: 10px;
+    border-radius: 5px;
+    border: 1px solid #3F51B5;
+    border-radius: 5px;
+}
+.check{
+    border: 1px solid #F1F1F1;
+    padding: 10px 0px 10px 0px;
+    background: #FFFFFF;
+    width:96%;
+    box-shadow: 0px 0px 58px rgba(0, 0, 0, 0.05);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#vehicle {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4px 6px;
+    gap: 10px;
+    background: #EAEAEA;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+#vehicle span{
+    font-weight: 500;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, 
+  .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #3F51B5 !important;
+   
+  }
+  
+
+  ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #3F51B5 !important;
+   
+  }
+
+ 
+  
+  .button {
+    float: right;
+  }
+  
+  .btn1{
+    background: #E6E9FD;
+    color: #3F51B5;
+  }
+  
+  .btn2{
+    background: #FFFFFF;
+    color: #3F51B5 !important;
+    border: 1px solid #3F51B5;
+    border-radius: 5px;
+  }

@@ -1,0 +1,80 @@
+.badge{
+    background: #3f51b500;
+    color: #3F51B5;
+    font-size: 17px;
+    float: right;
+}
+
+.filter {
+  display: block;
+  padding: 0px 10px 0px 10px;
+
+}
+
+::ng-deep .blue-n-indigo-light-theme .mat-select-placeholder {
+  color: rgb(0 0 0 / 63%) !important;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    box-shadow: none !important;
+  
+  }
+
+  :host ::ng-deep .mat-sort-header-container {
+    // display: flex;
+    justify-content: center;
+    
+ }
+
+ :host ::ng-deep .mat-sort-header-content{
+  display: block;
+ }
+
+ th.mat-header-cell {
+    text-align: center;
+    border: 1px solid #CCC;
+    padding: 0 !important;
+    background-color: #F3F3F3;
+}
+
+  
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+.btn {
+    float: right;
+    color: #3F51B5;
+    border: 1px solid #3F51B5;
+    border-radius: 4px;
+    margin-right: 7px;
+}
+
+.btn3{
+  float: right;
+  color: #3F51B5;
+  border: 1px solid #3F51B5;
+  border-radius: 4px;
+  margin-right: 7px;
+}
+
+.label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+}
+.btn-apply{
+width: 125px;
+height: 40px;
+left: 1332px;
+top: 192px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px 12px;
+gap: 10px;
+}

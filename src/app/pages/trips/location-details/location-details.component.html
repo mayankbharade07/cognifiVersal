@@ -1,0 +1,372 @@
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <p>Trip Listing >Trip Details><span style="color: #2196F3;">Location-Details</span></p>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row m-0">
+                    <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                        <div class="card p-0">
+                            <div class="p-4">
+
+                                <div class="row jutify-content-between">
+                                    <div class="col-md-6 p-0">
+                                        <div class="row m-0">
+                                            <div class="col-sm-12">
+                                                <p id="name" style="text-align: left;">Base Location</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6" [align]="'right'">
+                                        <button mat-button class="btn1" routerLink="/pages/Base-loaction-list">Edit Base Location</button>
+                                    </div>
+                                </div>
+                                <div class="row jutify-content-between">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <mat-label id="label">Start Base point</mat-label>
+                                        <br>
+                                        <mat-label id="label">Start Point</mat-label>
+                                        <br>
+                                        <mat-label id="label">Distance</mat-label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <mat-label class="label">Post Office</mat-label>
+                                        <mat-label class="label">Railway Station</mat-label>
+                                        <mat-label class="label">10KM</mat-label>
+
+                                    </div>
+                                </div>
+                                <div class="row jutify-content-between">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <mat-label id="label">End Base point</mat-label>
+                                        <br>
+                                        <mat-label id="label">End Point</mat-label>
+                                        <br>
+                                        <mat-label id="label">Distance</mat-label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <mat-label class="label">Arpita Apartment Andheri</mat-label>
+                                        <mat-label class="label">Andheri H.O, Mumbai</mat-label>
+                                        <mat-label class="label">15KM</mat-label>
+                                    </div>
+                                </div>
+                                <div class="row mt-5 p-0">
+                                    <div class="col-md-10 col-sm-10 total-distance pt-3 pb-4">
+                                        <div class="row p-0 m-0">
+                                            <div class="col-md-10" [align]="'left'"> Total distance (Including the base
+                                                location)</div>
+                                            <div class="col-md-2" [align]="'right'"> 250KM</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-0">
+                                    <div class="row p-0 mt-5">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 m-0 p-0">
+                                            <span class="material-icons" style="color: #2196F3;">circle</span>
+                                            <span id="points">Start Base
+                                                point</span>
+
+                                            <hr class="location-line">
+
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 m-0 p-0">
+                                            <span  style="color: #2196F3;">
+                                                <mat-icon> place</mat-icon>
+                                            </span>
+                                            <span id="points">Start point</span>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 mt-3 p-0">
+                                            <span class="material-icons" style="color: #DC2127;">circle</span>
+                                            <span id="points">End Base
+                                                point</span>
+
+                                            <hr class="location-line">
+
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 mt-3 p-0">
+                                            <span  style="color: #DC2127;">
+                                                <mat-icon> place</mat-icon>
+                                            </span>
+                                            <span id="points">End point</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="row m-0">
+                                <div class="row p-0 mt-5">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 m-0 p-0">
+                                        <span class="material-icons" style="color: #34C654;">circle</span>
+                                        <span id="points">Start Base point</span>
+                                        <hr class="location-line">
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 m-0 p-0">
+                                        <span class="material-icons" style="color: #EF3131;">circle</span>
+                                        <span id="points">Start point</span>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3 p-0">
+                                        <span class="material-icons" style="color: #34C654;">circle</span>
+                                        <span id="points">Start Base point</span>
+                                        <hr class="location-line">
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 mt-3 p-0">
+                                        <span class="material-icons" style="color: #EF3131;">circle</span>
+                                        <span id="points">Start point</span>
+                                    </div>
+                                </div>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 mt-1">
+                        <div>
+                            <iframe class="map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.3747375871835!2d75.90937681496287!3d22.751470285091056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39631d5891adfb65%3A0xea28a34c2ba3a5ab!2sMoreYeahs%20Inc!5e0!3m2!1sen!2sin!4v1658699570786!5m2!1sen!2sin"
+                                width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="row m-0">
+        <div class="col-lg-12- col-md-12 col-sm-12 col-xs-12 px-5 py-5 m-0">
+          <div class="card p-4">
+            <p class="mb-0 form-head"  class="head-table">Trip Stops</p>
+            <div class="row justify-content-between">
+              <div class="col-sm-6 mx-0 p-0">
+                <mat-form-field style="width: 26%;">
+                  <!-- <input matInput placeholder="Search Employee" [(ngModel)]="empl"
+                              [ngModelOptions]="{standalone: true}"> -->
+                  <input matInput placeholder="Search" (keyup)="applyFilter($event)" #input>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 mx-0 p-0">
+                <span class="badge badge-secondary btn-s ml-4">
+                  <i class="fa fa-print" aria-hidden="true" style="color:black;"></i>
+                </span>
+                <span class="badge badge-secondary btn-s ml-4">
+                  <i class="fa fa-cloud-download" aria-hidden="true" style="color:black;"></i>
+                </span>
+                <span class="badge badge-secondary btn-s ml-4">
+                  <i class="fa fa-cog" aria-hidden="true" style="color:black;"></i>
+                </span>
+              </div>
+
+            </div>
+
+            <div class="table-responsive p-3">
+              <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+                class="mat-elevation-z8">
+
+                <!-- Trip ID And Name Column -->
+                <ng-container matColumnDef="tripId">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.rowspan]="2"
+                    sortActionDescription="Sort by number">
+                    Stop Name
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.tripId}} </td>
+                </ng-container>
+
+                <!-- Planned Columns -->
+                <ng-container matColumnDef="onword">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="2"
+                    sortActionDescription="Sort by symbol">
+                    Planned 
+                  </th>
+                </ng-container>
+
+                <ng-container matColumnDef="startDTonword">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Date
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.onwardStartTime}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="endDTonword">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Time
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.onwardEndTime}} </td>
+                </ng-container>
+
+                <!-- Actual Columns -->
+                <ng-container matColumnDef="actual">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="2"
+                    sortActionDescription="Sort by symbol">
+                    Actual
+                  </th>
+                </ng-container>
+
+                <ng-container matColumnDef="startDTactual">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Date
+                  </th>
+                  <td mat-cell *matCellDef="let element"> 
+                    <span *ngIf="!element.onwardActualStartTime">---</span>{{element.onwardActualStartTime}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="endDTactual">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Time
+                  </th>
+                  <td mat-cell *matCellDef="let element"> 
+                    <span *ngIf="!element.onwardActualEndTime">---</span>{{element.onwardActualEndTime}} </td>
+                </ng-container>
+                <!-- Trip Type Column-->
+                <ng-container matColumnDef="perfomance">
+                  <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2" sortActionDescription="Sort by symbol">
+                    Action
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    <span class="badge badge-secondary btn-s ml-4">
+                      <i class="fa fa-trash"></i>
+                    </span>
+                    <span class="badge badge-secondary btn-s ml-4">
+                      <i class="fa fa-edit"></i>
+                    </span>
+                    <span class="badge badge-secondary btn-s ml-4">
+                      <i class="fa fa-eye" style="color: #3F51B5;">
+                      </i>
+                    </span>
+                  </td>
+                </ng-container>
+
+
+
+                <!-- <ng-container matColumnDef="action">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header
+                          sortActionDescription="Sort by symbol">
+                          Action
+                      </th>
+                      <td mat-cell *matCellDef="let element">
+                          <span class="badge badge-secondary btn-s ml-4">
+                              <i class="fa fa-trash"></i>
+                          </span>
+                          <span class="badge badge-secondary btn-s ml-4">
+                              <i class="fa fa-edit"></i>
+                          </span>
+                          <span class="badge badge-secondary btn-s ml-4">
+                              <i class="fa fa-eye" style="color: #3F51B5;">
+                              </i>
+                          </span>
+                      </td>
+                  </ng-container> -->
+                <tr mat-header-row
+                  *matHeaderRowDef="['tripId','onword', 'actual','perfomance']">
+                </tr>
+                <tr mat-header-row
+                  *matHeaderRowDef="['startDTonword', 'endDTonword', 'startDTactual', 'endDTactual']"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="float: left;"
+                aria-label="Select page of periodic elements">
+              </mat-paginator>
+            </div>
+            <!-- <div>
+              <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+                class="mat-elevation-z8">
+
+                <ng-container matColumnDef="tripId">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+                    Trip ID And Name
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                    Vehicle Name
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="drivername">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+                    Driver Name
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Status
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="symbol">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Category
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Start Date | Time
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="time">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    End Date | Time
+                  </th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    End Date | Time
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="startdate">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Start Date | Time
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="endtime">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    End Date | Time
+                  </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                    Action
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    <span class="badge badge-secondary btn-s ml-4">
+                      <i class="fa fa-trash"></i>
+                    </span>
+                    <span class="badge badge-secondary btn-s ml-4">
+                      <i class="fa fa-edit"></i>
+                    </span>
+                    <span class="badge badge-secondary btn-s ml-4">
+                      <i class="fa fa-eye" style="color: #3F51B5;">
+                      </i>
+                    </span>
+
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="float: left;"
+                aria-label="Select page of periodic elements">
+              </mat-paginator>
+             
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+</section>
+<ngx-spinner>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
